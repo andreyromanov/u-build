@@ -13,7 +13,7 @@
 
 
 
-<title>App Starter</title>
+<title>U-Build</title>
 </head>
 <body>
   <div class="se-pre-con"></div>
@@ -38,16 +38,24 @@
           <li class="nav-item mr-3">
             <a class="nav-link text-white" href="#price">Pricing</a>
           </li>
+
+          @guest
           <li class="nav-item">
-           <a href="#" class="button w-button text-dark lh">GET IT FREE</a>
+           <a href="/register" class="button w-button text-dark lh">CABINET</a>
          </li>
+          @else
+          <li class="nav-item">
+           <a href="/home" class="button w-button text-dark lh">CABINET</a>
+         </li>
+          @endguest 
+
        </ul>
      </div>
    </nav>
    <div class="row m-0 pb-5" >
     <div class="col-md-6 h-auto">
       <img class="mb-5 mt-5 h-75p" src="img/App Icon.png"> <br>
-      <label class="text-white mb-5 h1"><b>AppStarter.</b> Best landing page for web and mobile apps</label> <br>
+      <label class="text-white mb-5 h1"><b>U-Build.</b> Best biulding page for web and mobile apps</label> <br>
       <a href="#" class="gradient-button w-button mr-3 text-white mb-5">Download Now</a>
       <a href="#" class="button w-button text-dark mb-5">Watch Video</a>
     </div>

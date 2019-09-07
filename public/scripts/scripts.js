@@ -22,17 +22,20 @@ function tab3() {
 	$("#pic1").attr("src", imge);
 }
 /*************************U-BUILD FUNCTIONS*******************************************/
-function showUserInfo(){
+function showUserInfo(id){
 	$('.preloader').show();
 	$.ajax({
+  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
   url: "/home/user",
-  type: "GET",
-  data: {},
+  type: "POST",
+  data: {id},
   success: function(data){
   	$('.preloader').hide();
   	$('.border').show();
   	$('.border').html('');
-  	$('.border').html(data);
+  	$('.border').append(data.name);
+  	$('.border').append('<br>');
+  	$('.border').append(data.email);
   	console.log(data);
   }
 });

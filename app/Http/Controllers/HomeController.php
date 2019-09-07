@@ -27,10 +27,10 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function showUserInfo()
+    public function showUserInfo(Request $request)
     {
-        $email = 'sdjfs@gmail.com';
+        $user = User::where('id', '=', $request->id)->firstOrFail();
 
-        return $email;
+        return $user;
     }
 }

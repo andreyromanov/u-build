@@ -13,8 +13,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
                     You are logged in!
+                    <div class="row p-2 text-center">
+                        <img class="preloader m-auto" src="../img/load/45.gif">
+                        <div class="col-md-12 border" style="display: none;"></div>
+                    </div>
+                    <button onclick="showUserInfo()" class="btn btn-primary">
+                        SHOW USER INFO
+                    </button>
                 </div>
             </div>
         </div>

@@ -21,3 +21,19 @@ function tab3() {
 	imge = "img/Tablet4.png";
 	$("#pic1").attr("src", imge);
 }
+/*************************U-BUILD FUNCTIONS*******************************************/
+function showUserInfo(){
+	$('.preloader').show();
+	$.ajax({
+  url: "/home/user",
+  type: "GET",
+  data: {},
+  success: function(data){
+  	$('.preloader').hide();
+  	$('.border').show();
+  	$('.border').html('');
+  	$('.border').html(data);
+  	console.log(data);
+  }
+});
+}

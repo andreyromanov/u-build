@@ -178,7 +178,7 @@ html{
 }
 
 body{
-    font-family: 'NunitoSansRegular'!important;
+    /*font-family: 'NunitoSansRegular'!important;*/
 }
 
 .gradient-button {
@@ -330,4 +330,7 @@ body{
     height: 100%;
     z-index: 9999;
     background: url(../img/load/Preloader_2.gif) center no-repeat #fff;
+}
+.preloader{
+    display: none;
 }

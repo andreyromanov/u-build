@@ -67,7 +67,7 @@
 
 <div class="content text-center sect-2 bg-grey">
   <h1 id="features" class="pt-5">How does it work</h1>
-  <div class="row m-0 pb-5 pt-5" data-aos="zoom-in">
+  <div class="row m-0 pb-5 pt-5">
    <div class="space"></div>
    <div class="col-md-3 text-center m-4 pt-5 div-box">
     <img src="img/icons/Reload Icon1.png"> <br>
@@ -91,7 +91,7 @@
 </div>
 
 <div class="content bg-white">
-  <div class="row ml-0 mr-0 p-5 text-center" data-aos="zoom-in">
+  <div class="row ml-0 mr-0 p-5 text-center">
     <div class="col-md-2 pt-2 pb-2"><img src="img/press/wired.png"></div>
     <div class="col-md-2 pt-2 pb-2"><img src="img/press/lifehacker.png"></div>
     <div class="col-md-2 pt-2 pb-2"><img src="img/press/mashable.png"></div>
@@ -142,18 +142,18 @@
 
 <div class="content text-center pb-5 pt-5 bg-grey">
   <div class="row ml-0 mr-0 mt-md-5 mb-md-5 div-box">
-    <div class="col-md-6 bg rounded-left t3" data-aos="fade-right">
+    <div class="col-md-6 bg rounded-left t3">
       <img class="tablet mt-70p" src="img/Tablet3.png">
     </div>
-    <div class="col-md-6 pt-5 m-auto" data-aos="fade-right">
+    <div class="col-md-6 pt-5 m-auto" >
       <h2><b>Perfect</b> landing page for your app</h2>
       <label class="p-5">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.  </label>
     </div>
-    <div class="col-md-6 pt-5 m-auto" data-aos="fade-left">
+    <div class="col-md-6 pt-5 m-auto" >
      <h2><b>Perfect</b> landing page for your app</h2>
      <label class="p-5">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.  </label>
    </div>
-   <div class="col-md-6 bg rounded-right t3" data-aos="fade-left">
+   <div class="col-md-6 bg rounded-right t3" >
      <img class="tablet mt-70p" src="img/Tablet4.png">
    </div>
  </div>
@@ -246,7 +246,7 @@
 
 <div class="content pb-5 pt-5 bg" >
   <div class="row m-0" >
-    <div class="col-md-8 text-white text-center mb-5 m-auto" data-aos="zoom-out-down">
+    <div class="col-md-8 text-white text-center mb-5 m-auto">
       <h2 class="mt-5"><b>Stay</b> in touch</h2>
       <label class="ml-md-5 mr-md-5 pl-md-5 pr-md-5 mb-5">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</label>
 
@@ -306,8 +306,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script src="scripts/scripts.js"></script>

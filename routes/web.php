@@ -19,3 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/user', 'HomeController@showUserInfo')->name('home.userinfo');
+
+Route::get('/economics', function () {
+    return view('economics.economics');
+});
+
+Route::get('/statistics', function () {
+    return view('statistics.statistics');
+});

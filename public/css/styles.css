@@ -334,3 +334,6 @@ body{
 .preloader{
     display: none;
 }
+.sidebar-dark-primary{
+    background-color: #105197!important;
+}

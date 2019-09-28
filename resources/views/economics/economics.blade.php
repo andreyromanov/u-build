@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">ECONOMIKA</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    ECONOMIKA
+                    
+                    @foreach($economics as $economica)
+                        {{$economica->name}} - {{$economica->count}} - {{$economica->cost}}<br>
+                    @endforeach
                 </div>
             </div>
         </div>

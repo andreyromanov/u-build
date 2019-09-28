@@ -36,11 +36,17 @@
             <a href="/home" class="nav-link">
               <i class="nav-icon fas fa-anchor"></i>
               <p>
-                Головна
+                Навігація
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/home" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Панель</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="/" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

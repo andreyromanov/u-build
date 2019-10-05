@@ -17,11 +17,27 @@ class EconomicsController extends Controller
     {
         $chart = new RegisteredUsers;
         $chart->labels(['One', 'Two', 'Three', 'Four']);
-        $chart->dataset('My dataset', 'bar', [1, 2, 3, 4]);
+        $chart->dataset('My dataset', 'bar', [1, 2, 3, 4])->color('red')->fill('red');
+
+        $chart2 = new RegisteredUsers;
+        $chart2->labels(['One', 'Two', 'Three']);
+        $chart2->dataset('My dataset', 'pie', [1, 2, 3])->backgroundColor(['#00ff00', '#ff0000', '#0000ff']);;
+
+        $chart3 = new RegisteredUsers;
+        $chart3->labels(['One', 'Two', 'Three', 'Four']);
+        $chart3->dataset('My dataset', 'line', [1, 2, 3, 4])->options([
+            'color' => 'rgba(1, 2, 0, 0.5)',
+        ]);
+
+        $chart4 = new RegisteredUsers;
+        $chart4->labels(['One', 'Two', 'Three', 'Four']);
+        $chart4->dataset('My dataset', 'radar', [1, 2, 3, 4])->options([
+            'color' => 'green',
+        ]);
 
         $economics = Economics::all();
         
-        return view('economics.economics', ['economics' => $economics, 'chart' => $chart]);
+        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4]);
     }
 
     /**

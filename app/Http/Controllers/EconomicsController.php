@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Economics;
 use Illuminate\Http\Request;
+use App\Charts\RegisteredUsers;
 
 class EconomicsController extends Controller
 {
@@ -14,9 +15,13 @@ class EconomicsController extends Controller
      */
     public function index()
     {
+        $chart = new RegisteredUsers;
+        $chart->labels(['One', 'Two', 'Three', 'Four']);
+        $chart->dataset('My dataset', 'bar', [1, 2, 3, 4]);
+
         $economics = Economics::all();
         
-        return view('economics.economics', ['economics' => $economics]);
+        return view('economics.economics', ['economics' => $economics, 'chart' => $chart]);
     }
 
     /**

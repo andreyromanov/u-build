@@ -14,7 +14,14 @@
                         </div>
                     @endif
 
-                    STATISTIKA
+                   <div class="row text-center">
+                        <div class="col-md-6 border-right"><h5>moda</h5><hr></div>
+                        <div class="col-md-6"><h5>poligon</h5><hr></div>
+                   </div>
+                   <div class="row border-top text-center">
+                        <div class="col-md-6 border-right"><h5>top</h5><hr></div>
+                        <div class="col-md-6"><h5>disp</h5><hr></div>
+                   </div>
                 </div>
             </div>
         </div>

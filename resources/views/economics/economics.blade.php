@@ -18,25 +18,28 @@
                         {{$economica->name}} - {{$economica->count}} - {{$economica->cost}}<br>
                     @endforeach
                     
-                   {{print_r($data)}}
                     <div class="row text-center">
                         <div class="col-md-6 border-right">
-                            <h5>moda</h5><hr>
+                            
                             <div height="400px">{!! $chart->container() !!}</div>
+                            <h5>moda</h5>
                         </div>
                         <div class="col-md-6">
-                        <h5>poligon</h5><hr>
+                        
                         <div height="400px">{!! $chart2->container() !!}</div>
+                        <h5>poligon</h5>
                         </div>
                    </div>
                    <div class="row border-top text-center">
                         <div class="col-md-6 border-right">
-                        <h5>top</h5><hr>
+                        
                         <div height="400px">{!! $chart3->container() !!}</div>
+                        <h5>top</h5>
                         </div>
                         <div class="col-md-6">
-                        <h5>disp</h5><hr>
+                        
                         <div height="400px">{!! $chart4->container() !!}</div>
+                        <h5>disp</h5>
                         </div>
                    </div>
                 </div>

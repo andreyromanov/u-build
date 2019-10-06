@@ -49,7 +49,7 @@ class EconomicsController extends Controller
         $chart4->labels($labels);
         $chart4->dataset('My dataset', 'pie', $data)->backgroundColor($colors);
         
-        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'data' => $data]);
+        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4]);
     }
 
     /**

@@ -29,15 +29,27 @@ class EconomicsController extends Controller
             'color' => 'rgba(1, 2, 0, 0.5)',
         ]);
 
-        $chart4 = new RegisteredUsers;
-        $chart4->labels(['One', 'Two', 'Three', 'Four']);
-        $chart4->dataset('My dataset', 'radar', [1, 2, 3, 4])->options([
-            'color' => 'green',
-        ]);
-
         $economics = Economics::all();
+        $economics2 = Economics::all('name','count');
         
-        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4]);
+        $labels = [];
+        $data = [];
+        $colors =[];
+        foreach($economics2 as $economic){
+            $rand_color = '#' . substr(md5(mt_rand()), 0, 6);
+
+            array_push($labels, $economic->name);
+
+            array_push($data, $economic->count);
+            
+            array_push($colors, $rand_color);
+        }
+
+        $chart4 = new RegisteredUsers;
+        $chart4->labels($labels);
+        $chart4->dataset('My dataset', 'pie', $data)->backgroundColor($colors);
+        
+        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'data' => $data]);
     }
 
     /**

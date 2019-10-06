@@ -18,7 +18,7 @@
                         {{$economica->name}} - {{$economica->count}} - {{$economica->cost}}<br>
                     @endforeach
                     
-                   
+                   {{print_r($data)}}
                     <div class="row text-center">
                         <div class="col-md-6 border-right">
                             <h5>moda</h5><hr>

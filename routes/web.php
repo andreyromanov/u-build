@@ -25,3 +25,11 @@ Route::get('/economics', 'EconomicsController@index')->name('economics');
 Route::get('/statistics', function () {
     return view('statistics.statistics');
 });
+////////////     BUILDINGS    ///////////////////
+Route::get('/buildings', function () {
+    return view('buildings.buildings');
+});
+
+Route::get('/add_building', function () {
+    return view('buildings.add');
+});

@@ -57,6 +57,29 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Об'єкти
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/buildings" class="nav-link">
+                  <i class="far fa-building nav-icon"></i>
+                  <p>Список об'єктів</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/add_building" class="nav-link">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Додати</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Економіка

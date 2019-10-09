@@ -65,7 +65,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/buildings" class="nav-link">
+                <a href="/buildings/{{ Auth::user()->id }}" class="nav-link">
                   <i class="far fa-building nav-icon"></i>
                   <p>Список об'єктів</p>
                 </a>
@@ -409,7 +409,7 @@
   crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<script src="scripts/scripts.js"></script>
+<script src="/scripts/scripts.js"></script>
 <script src="/js/app.js"></script>
 </body>
 </html>

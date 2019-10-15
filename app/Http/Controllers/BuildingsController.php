@@ -38,7 +38,17 @@ class BuildingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Buildings::create([
+            'name' => $request['name'],
+            'budjet' => $request['budjet'],
+            'start_date' => $request['start_date'],
+            'end_date' => $request['end_date'],
+            'users_id' => $request['user_id'],
+        ]);    
+    
+        $buildings = Buildings::where('users_id', '=', $request->user_id)->get();
+
+        return view('buildings.buildings',['buildings' => $buildings]);
     }
 
     /**

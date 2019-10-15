@@ -47,9 +47,11 @@ class BuildingsController extends Controller
      * @param  \App\Buildings  $buildings
      * @return \Illuminate\Http\Response
      */
-    public function show(Buildings $buildings)
+    public function show(Request $request, Buildings $buildings)
     {
-        //
+        $building = Buildings::where('building_id', '=', $request->id)->get();
+
+        return view('buildings.one',['building' => $building]);
     }
 
     /**

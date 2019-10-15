@@ -42,7 +42,7 @@
                     <hr>
                     </p>
                     
-                    <a href="#" class="card-link " >Another link</a>
+                    <a href="/building_one/{{$building->building_id}}" class="card-link " >Деталі</a>
                 </div>
                 </div>
             </div>

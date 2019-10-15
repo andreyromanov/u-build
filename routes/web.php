@@ -27,6 +27,7 @@ Route::get('/statistics', function () {
 });
 ////////////     BUILDINGS    ///////////////////
 Route::get('/buildings/{id}', 'BuildingsController@index');
+Route::get('/building_one/{id}', 'BuildingsController@show');
 
 Route::get('/add_building', function () {
     return view('buildings.add');

@@ -12,7 +12,6 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
-
 <title>U-Build</title>
 </head>
 <body>
@@ -20,7 +19,7 @@
 
   <div class="content bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-light bg-tr">
-      <a class="navbar-brand text-white" href="#">AppStarter</a>
+      <a class="navbar-brand text-white" href="#">U-Build</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -41,11 +40,11 @@
 
           @guest
           <li class="nav-item">
-           <a href="/register" class="button w-button text-dark lh">CABINET</a>
+           <a href="/register" class="button w-button text-dark lh">Кабінет</a>
          </li>
           @else
           <li class="nav-item">
-           <a href="/home" class="button w-button text-dark lh">CABINET</a>
+           <a href="/home" class="button w-button text-dark lh">Кабінет</a>
          </li>
           @endguest 
 
@@ -66,26 +65,23 @@
 </div>
 
 <div class="content text-center sect-2 bg-grey">
-  <h1 id="features" class="pt-5">How does it work</h1>
+  <h1 id="features" class="pt-5">Як працює U-Build</h1>
   <div class="row m-0 pb-5 pt-5">
    <div class="space"></div>
    <div class="col-md-3 text-center m-4 pt-5 div-box">
     <img src="img/icons/Reload Icon1.png"> <br>
     <label class="pt-3"><b>Sync</b> across all devices</label> 
     <label class="pt-2">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</label>
-    <label class="pt-2 mb-5"><a href="#">Watch video</a></label>
   </div>
   <div class="col-md-3 text-center m-4 pt-5 div-box">
    <img src="img/icons/Inbox Icon1.png"> <br>
    <label class="pt-3"><b>All emails</b> in one place</label>
    <label class="pt-2">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</label>
-   <label class="pt-2 mb-5"><a href="#">Watch video</a></label>
  </div>
  <div class="col-md-3 text-center m-4 pt-5 div-box">
    <img src="img/icons/Notifications Icon.png"> <br>
    <label class="pt-3"><b>Notifications</b> about sales</label>
    <label class="pt-2">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</label>
-   <label class="pt-2 mb-5"><a href="#">Watch video</a></label>
  </div>
 </div>
 </div>
@@ -143,7 +139,6 @@
 <div class="content text-center pb-5 pt-5 bg-grey">
   <div class="row ml-0 mr-0 mt-md-5 mb-md-5 div-box">
     <div class="col-md-6 bg rounded-left t3">
-      <img class="tablet mt-70p" src="img/Tablet3.png">
     </div>
     <div class="col-md-6 pt-5 m-auto" >
       <h2><b>Perfect</b> landing page for your app</h2>
@@ -154,7 +149,6 @@
      <label class="p-5">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.  </label>
    </div>
    <div class="col-md-6 bg rounded-right t3" >
-     <img class="tablet mt-70p" src="img/Tablet4.png">
    </div>
  </div>
 </div>
@@ -174,12 +168,7 @@
 <div id="review"  class="row ml-0 mr-0">
   <div class="col-md-4 text-left pt-5 content sect-8">
     <img class="mt-5" src="img/icons/Stars.png">
-    <h3 class="mt-5 mb-5 pb-5">Customers about AppStarted</h3>
-    <div class="revs">
-      <label>Read more reviews:</label> <br> <br>
-      <img class="mr-3" src="img/icons/Arrow Icon.png"><label>App Store</label> <br>
-      <img class="mr-3" src="img/icons/Arrow Icon.png"><label>Google Play</label>
-    </div>
+    <h3 class="mt-5 mb-5 pb-5">Відгуки користувачів</h3>
   </div>
   <div class="col-md-8 pr-5 pt-5 pb-5 bg-grey">
 
@@ -244,7 +233,7 @@
 
 
 
-<div class="content pb-5 pt-5 bg" >
+<!--div class="content pb-5 pt-5 bg" >
   <div class="row m-0" >
     <div class="col-md-8 text-white text-center mb-5 m-auto">
       <h2 class="mt-5"><b>Stay</b> in touch</h2>
@@ -275,7 +264,7 @@
 
     </div>
   </div>
-</div>
+</div-->
 
 
 

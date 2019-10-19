@@ -177,10 +177,6 @@ html{
     scroll-behavior: smooth;
 }
 
-body{
-    /*font-family: 'NunitoSansRegular'!important;*/
-}
-
 .gradient-button {
     height: 50px;
     padding-top: 11px;
@@ -249,7 +245,10 @@ body{
 }
 
 .bg {
-    background-image:url('../img/background2.jpg');
+    background: linear-gradient(
+                     rgba(20,20,20, .5), 
+                     rgba(20,20,20, .5)),
+                     url( '../img/background2.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;

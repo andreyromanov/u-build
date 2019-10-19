@@ -26,16 +26,13 @@
       <div class="collapse navbar-collapse justify-content-end h5" id="navbarNav">
         <ul class="navbar-nav navbar-right">
           <li class="nav-item mr-3">
-            <a class="nav-link text-white" href="#features">Features</a>
+            <a class="nav-link text-white" href="#features">Можливості</a>
           </li>
+          <!--li class="nav-item mr-3">
+            <a class="nav-link text-white" href="#review">Відгуки</a>
+          </li-->
           <li class="nav-item mr-3">
-            <a class="nav-link text-white" href="#video">Video Tour</a>
-          </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link text-white" href="#review">Reviews</a>
-          </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link text-white" href="#price">Pricing</a>
+            <a class="nav-link text-white" href="#price">Інтерфейс</a>
           </li>
 
           @guest
@@ -54,12 +51,10 @@
    <div class="row m-0 pb-5" >
     <div class="col-md-6 h-auto">
       <img class="mb-5 mt-5 h-75p" src="img/App Icon.png"> <br>
-      <label class="text-white mb-5 h1"><b>U-Build.</b> Best biulding page for web and mobile apps</label> <br>
-      <a href="#" class="gradient-button w-button mr-3 text-white mb-5">Download Now</a>
-      <a href="#" class="button w-button text-dark mb-5">Watch Video</a>
+      <label class="text-white mb-5 h1"><b>U-Build.</b> Найкращий сервіс управління будівництвом</label> <br>
+      <a href="#features" class="gradient-button w-button mr-3 text-white mb-5">Почати</a>
     </div>
     <div class="col-md-6 text-center h-400p">
-      <img class="tablet-abs" src="img/Tablet1.png">
     </div>
   </div>
 </div>
@@ -70,23 +65,23 @@
    <div class="space"></div>
    <div class="col-md-3 text-center m-4 pt-5 div-box">
     <img src="img/icons/Reload Icon1.png"> <br>
-    <label class="pt-3"><b>Sync</b> across all devices</label> 
-    <label class="pt-2">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</label>
+    <label class="pt-3"><b>Всі обєкти разом</b></label> 
+    <label class="pt-2">Всі Ваші будівельні  обєкти знаходяться у особистому кабінеті.</label>
   </div>
   <div class="col-md-3 text-center m-4 pt-5 div-box">
    <img src="img/icons/Inbox Icon1.png"> <br>
-   <label class="pt-3"><b>All emails</b> in one place</label>
-   <label class="pt-2">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</label>
+   <label class="pt-3"><b>Будь-які звіти</b></label>
+   <label class="pt-2">Можливість швидко формувати звіти по статистиці та економіці.</label>
  </div>
- <div class="col-md-3 text-center m-4 pt-5 div-box">
+ <div class="col-md-3 text-center m-4 pt-5 pb-4 div-box">
    <img src="img/icons/Notifications Icon.png"> <br>
-   <label class="pt-3"><b>Notifications</b> about sales</label>
-   <label class="pt-2">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</label>
+   <label class="pt-3"><b>Зручність</b></label>
+   <label class="pt-2">Доступ до застосування у будь-якій точці світу з будь-якого пристрою.</label>
  </div>
 </div>
 </div>
 
-<div class="content bg-white">
+<!--div class="content bg-white">
   <div class="row ml-0 mr-0 p-5 text-center">
     <div class="col-md-2 pt-2 pb-2"><img src="img/press/wired.png"></div>
     <div class="col-md-2 pt-2 pb-2"><img src="img/press/lifehacker.png"></div>
@@ -95,9 +90,9 @@
     <div class="col-md-2 pt-2 pb-2"><img src="img/press/gizmodo.png"></div>
     <div class="col-md-2 pt-2 pb-2"><img src="img/press/macworld.png"></div>
   </div>
-</div>
+</div-->
 
-<div class="content text-center bg-grey">
+<!--div class="content text-center bg-grey">
   <div class="row m-0 pb-5 pt-5" >
     <div class="col-md-6 text-left m-auto">
       <div class="sect-4 pb-2 pt-3" onclick="tab1()">
@@ -121,17 +116,20 @@
       <img id="pic1" class="tablet pr-box b-r" src="img/Tablet2.png">
     </div>
   </div>
-</div>
+</div-->
 
 <div class="content bg">
   <div class="row m-0 pt-3">
     <div class="col-md-7 text-white m-auto">
-      <h3><b>Download</b> to get started</h3>
-      This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.  
+      <h3><b>Початок роботи</b></h3>
+  Почніть роботу з застосуванням та створіть свій особистий кабінет.
     </div>
     <div class="col-md-5 pt-5 text-center">
-      <a href="#" class="gradient-button w-button mr-3 text-white mb-5">Buy for $24</a>
-      <a href="#" class="button w-button text-dark mb-5">Try It Free</a>
+          @guest
+           <a href="/register" class="button w-button text-dark mb-5">Кабінет</a>
+          @else
+           <a href="/home" class="button w-button text-dark mb-5">Кабінет</a>
+          @endguest 
     </div>
   </div>
 </div>
@@ -141,12 +139,10 @@
     <div class="col-md-6 bg rounded-left t3">
     </div>
     <div class="col-md-6 pt-5 m-auto" >
-      <h2><b>Perfect</b> landing page for your app</h2>
-      <label class="p-5">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.  </label>
+      <h2><b>Кращий</b> сервіс серед конкурентів</h2>
     </div>
     <div class="col-md-6 pt-5 m-auto" >
-     <h2><b>Perfect</b> landing page for your app</h2>
-     <label class="p-5">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.  </label>
+     <h2><b>Сучасні</b> методи та засоби розробки</h2>
    </div>
    <div class="col-md-6 bg rounded-right t3" >
    </div>
@@ -156,16 +152,13 @@
 <div id="video" class="content pt-5 pb-5 bg-v">
   <div class="row ml-0 mr-0 p-5 text-center text-white">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <h2><b>Watch</b> video tour</h2>
-      <label class="">This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.  </label> <br>
-      <button class="text-center mt-5 btn-play bg-white rounded-circle border-0"><img src="img/icons/Play Filled Icon.png"></button>
+    <div class="col-md-6" style="height:200px;">
     </div>
     <div class="col-md-3"></div>
   </div>
 </div>
 
-<div id="review"  class="row ml-0 mr-0">
+<!--div id="review"  class="row ml-0 mr-0">
   <div class="col-md-4 text-left pt-5 content sect-8">
     <img class="mt-5" src="img/icons/Stars.png">
     <h3 class="mt-5 mb-5 pb-5">Відгуки користувачів</h3>
@@ -193,38 +186,32 @@
       <label><b>Marian McGuire</b> - Entepreneur</label> <img class="float-right" src="img/icons/Twitter Icon.png">
     </div>
   </div>
-</div>
+</div-->
 
 <div id="price"  class="row ml-0 mr-0 bg-grey border-top">
   <div class="col-md-4 pl-5 text-left m-auto" >
-    <h2 class="mb-3 mt-3" ><b>Choose</b> your plan</h2>
-    <p>This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise.</p>   
+    <h2 class="mb-3 mt-3" ><b>Інтерфейс</b></h2>
+    <p>Зручний інтерфейс користувача, виконаний за допомогою сучасних технологій, зробить Вашу роботу з сервісом легкою.</p>   
   </div>
   <div class="col-md-8 p-5 bg-grey">
     <div class="row p-md-5">
       <div class="col-md-6 p-0 text-center text-white bg roundedpr-box">
-        <div class="mt-5 lbl-pr"><label class="pt-2 pb-2 m-auto">PROFESSIONAL</label> </div>
-        <h1 class="text-center pt-4 pb-4">$ 10</h1>
+        <div class="mt-5 lbl-pr"><label class="pt-2 pb-2 m-auto">Бельетаж</label> </div>
+        <h1 class="text-center pt-4 pb-4">999999 $</h1>
         <div class="text-left">
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Hundreds of elements</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Style guide</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>160 icons included</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Sketch files</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Commercial licence</label> <br>
+          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Початок: 2019-10-10 </label> <br>
+          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Кінець: 2019-10-31</label> <br>
         </div>
-        <div class="pl-5 pr-5 pt-3 pb-3"><a href="#" class="w-100 pl-5 pr-5 gradient-button w-button mr-3 text-white mb-5">Buy Now</a></div>
+        <div class="pl-5 pr-5 pt-3 pb-3"><a href="#" class="w-100 pl-5 pr-5 gradient-button w-button mr-3 text-white mb-5">Деталі</a></div>
       </div>
 
       <div class="col-md-6 mt-3 mb-3 text-center p-0 bg-white rounded pr-box">
-        <div class="mt-5 lbl-pr"><label class="pt-2 pb-2 m-auto">STARTER</label> </div>
-        <h1 class="text-center pt-4 pb-4">FREE</h1>
+        <div class="mt-5 lbl-pr"><label class="pt-2 pb-2 m-auto">Перлина</label> </div>
+        <h1 class="text-center pt-4 pb-4">777777 $</h1>
         <div class="text-left">
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Professional</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Professional</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Professional</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Professional</label> <br>
-          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Professional</label> <br>
-          <div class="pl-5 pr-5 pt-3 pb-3"><a href="#" class="button w-button text-dark mb-5 btn-f">Get Free</a></div>
+          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Початок: 2019-10-06 </label> <br>
+          <img class="mr-2 ml-5" src="img/icons/Success Icon.png"><label>Кінець: 2019-11-11</label> <br>
+          <div class="pl-5 pr-5 pt-3 pb-3"><a href="#" class="button w-button text-dark mb-5 btn-f">Деталі</a></div>
         </div>
       </div>
     </div>
@@ -275,11 +262,11 @@
     <div class="container-fluid text-center">
       <div class="row">
         <div class="col-sm-4 col-md-4 mt-md-0 mb-3 text-md-left text-sm-center">
-          <h3>App Starter</h3>   
+          <h3>U-Build</h3>   
         </div>
         <div class="col-sm-4 col-md-4 mb-md-0 mb-3 text-center">
-          <label>Created by <b>Andrii Romanov</b></label> <br>
-          <label>App Starter</label>
+          <label>Розробив <b>Андрій Романов</b></label> <br>
+          <label>U-Build</label>
         </div>
         <div class="col-sm-4 col-md-4 mb-md-0 mb-3 text-md-right text-sm-center">
           <a href="#"><i class="fab fa-twitter-square h3 text-secondary"></i></a>

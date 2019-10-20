@@ -8,8 +8,8 @@
    <!-- CSRF Token -->
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>AdminLTE 3 | Dashboard 3</title>
-
+  <title>U-Build | Кабінет</title>
+  <link rel="icon" href="img/App Icon.png">
   <link rel="stylesheet" href="/css/app.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -43,13 +43,13 @@
             <ul class="nav nav-treeview">
             <li class="nav-item">
                 <a href="/home" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                 <i class="fas fa-font"></i>
                   <p>Панель</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                 <i class="fas fa-store-alt"></i>
                   <p>Вітання</p>
                 </a>
               </li>
@@ -89,7 +89,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/economics" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                 <i class="fab fa-bitcoin"></i>
                   <p>Economics</p>
                 </a>
               </li>
@@ -97,18 +97,6 @@
                 <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Boxed</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
                 </a>
               </li>
             </ul>
@@ -124,7 +112,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/statistics" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                 <i class="fas fa-chart-pie"></i>
                   <p>Statistics</p>
                 </a>
               </li>
@@ -147,7 +135,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{ route('logout') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-door-open"></i>
                   <p>Вийти</p>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -158,12 +146,6 @@
                 <a href="pages/charts/flot.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
                 </a>
               </li>
             </ul>

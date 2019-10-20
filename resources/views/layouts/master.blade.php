@@ -9,7 +9,7 @@
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>U-Build | Кабінет</title>
-  <link rel="icon" href="img/App Icon.png">
+  <link rel="icon" href="{{asset('img/App Icon.png')}}">
   <link rel="stylesheet" href="/css/app.css">
   <!-- IonIcons -->
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">

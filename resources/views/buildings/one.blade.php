@@ -23,6 +23,50 @@
             <div class="card">
                 <div class="card-header"><b>Управління об'ектом</b></div>
                 <div class="card-body">
+                <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-materials" role="tab" aria-controls="nav-home" aria-selected="true">Матеріали</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-workers" role="tab" aria-controls="nav-profile" aria-selected="false">Працівники</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-materials" role="tabpanel" aria-labelledby="nav-home-tab">
+                <br>
+                
+                <input type="text" id="myInput" onkeyup="search()" placeholder="Пошук будівельних матеріалів.." title="Type in a name">
+                <div style="max-height: 300px;overflow:auto">
+                <table id="myTable">
+                <tr class="header">
+                    <th style="width:20%;">Назва</th>
+                    <th style="width:20%;">Ціна</th>
+                    <th style="width:30%;">Постачальник</th>
+                    <th style="width:10%;">Кількість</th>
+                    <th style="width:20%;"></th>
+                </tr>
+                @foreach($products as $product)
+                <tr>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->price }} грн</td>
+                    <td>{{ $product->seller }}</td>
+                    <td><input type="number" class="form-control"></td>
+                    <td class="text-center"><button onclick="buyMaterial({{ $product->product_id }})" class="btn btn-success"><i class="fas fa-plus nav-icon"></i></button></td>
+                </tr>
+                @endforeach
+
+                </table>
+                </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-workers" role="tabpanel" aria-labelledby="nav-profile-tab">
+                Workers
+                </div>
+
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                3
+                </div>
+
+                </div>
                 </div>
             </div>
             

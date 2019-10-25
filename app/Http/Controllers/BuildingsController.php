@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Buildings;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,8 @@ class BuildingsController extends Controller
     {
         $buildings = Buildings::where('users_id', '=', $request->id)->get();
 
+        
+        
         return view('buildings.buildings',['buildings' => $buildings]);
    
     }
@@ -61,7 +64,9 @@ class BuildingsController extends Controller
     {
         $building = Buildings::where('building_id', '=', $request->id)->get();
 
-        return view('buildings.one',['building' => $building]);
+        $products = DB::table('products')->join('sellers','sellers.seller_id','=','products.sellers_seller_id')->get();
+
+        return view('buildings.one',['building' => $building, 'products' => $products]);
     }
 
     /**

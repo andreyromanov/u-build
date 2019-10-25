@@ -60,6 +60,17 @@ function search() {
 	}
   }
 
-  function buyMaterial(id) {
-	alert(id)
+  function buyMaterial(product_id, building_id) {
+
+	var count = $("input[name=mat_count"+product_id+"]").val();
+
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/materials/buy",
+		type: "POST",
+		data: {product_id, count, building_id},
+		success: function(data){
+			console.log("added");
+		}
+	  });
   }

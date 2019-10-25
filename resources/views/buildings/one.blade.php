@@ -49,8 +49,8 @@
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->price }} грн</td>
                     <td>{{ $product->seller }}</td>
-                    <td><input type="number" class="form-control"></td>
-                    <td class="text-center"><button onclick="buyMaterial({{ $product->product_id }})" class="btn btn-success"><i class="fas fa-plus nav-icon"></i></button></td>
+                    <td><input name="mat_count{{$product->product_id}}" type="number" min="1" value="1" class="form-control"></td>
+                    <td class="text-center"><button onclick="buyMaterial({{ $product->product_id }}, {{ $build->building_id }})" class="btn btn-success"><i class="fas fa-plus nav-icon"></i></button></td>
                 </tr>
                 @endforeach
 

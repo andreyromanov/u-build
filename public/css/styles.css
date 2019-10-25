@@ -339,7 +339,7 @@ html{
 
 #myInput {
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
     margin-bottom: 12px;
@@ -349,7 +349,7 @@ html{
     border-collapse: collapse;
     width: 100%;
     border: 1px solid #ddd;
-    font-size: 18px;
+    font-size: 16px;
   }
   
   #myTable th, #myTable td {

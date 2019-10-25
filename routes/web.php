@@ -33,3 +33,6 @@ Route::post('/register_building', 'BuildingsController@store');
 Route::get('/add_building', function () {
     return view('buildings.add');
 });
+
+////////////     MATERIALS    ///////////////////
+Route::post('/materials/buy', 'BuildingsController@addMaterial');

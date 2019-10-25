@@ -102,4 +102,20 @@ class BuildingsController extends Controller
     {
         //
     }
+
+    public function addMaterial(Request $request)
+    {
+        DB::table('purchases')->insert([
+
+            [
+                'products_product_id' => $request->product_id,
+                'count' => $request->count,
+                'buildings_building_id' => $request->building_id
+            ],
+           
+
+        ]);
+
+        return 'added';
+    }
 }

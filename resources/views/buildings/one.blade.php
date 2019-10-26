@@ -73,25 +73,25 @@
                 <div class="tab-pane fade" id="nav-workers" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <br>
                 
-                <input type="text" id="myInput" onkeyup="search()" placeholder="Пошук працівників.." title="Type in a name">
+                <input type="text" id="myInput2" onkeyup="searchWorker()" placeholder="Пошук працівників.." title="Type in a name">
                 <div style="max-height: 300px;overflow:auto">
-                <table id="myTable">
+                <table id="myTable2">
                 <tr class="header">
-                    <th style="width:30%;">Ім'я</th>
-                    <th style="width:10%;">Посада</th>
+                    <th style="width:25%;">Ім'я</th>
+                    <th style="width:15%;">Посада</th>
                     <th style="width:10%;">Зарплата</th>
                     <th style="width:5%;">Старт</th>
                     <th style="width:5%;">Кінець</th>
                     <th style="width:10%;"></th>
                 </tr>
-                @foreach($products as $product)
+                @foreach($workers as $worker)
                 <tr>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->price }} грн</td>
-                    <td>{{ $product->seller }}</td>
-                    <td><input name="start_contract{{$product->product_id}}" type="date" class="form-control" required></td>
-                    <td><input name="endcontract{{$product->product_id}}" type="date" class="form-control" required></td>
-                    <td class="text-center"><button onclick="signContract({{ $product->product_id }}, {{ $build->building_id }})" class="btn btn-success"><i class="fas fa-plus nav-icon"></i></button></td>
+                    <td>{{ $worker->name }}</td>
+                    <td>{{ $worker->position }}</td>
+                    <td>{{ $worker->salary }} грн</td>
+                    <td><input name="start_contract{{$worker->worker_id}}" type="date" class="form-control" required></td>
+                    <td><input name="end_contract{{$worker->worker_id}}" type="date" class="form-control" required></td>
+                    <td class="text-center"><button onclick="signContract({{ $worker->worker_id }}, {{ $build->building_id }})" class="btn btn-success"><i class="fas fa-plus nav-icon"></i></button></td>
                 </tr>
                 @endforeach
 

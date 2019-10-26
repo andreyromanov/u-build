@@ -48,10 +48,33 @@ function search() {
 	table = document.getElementById("myTable");
 	tr = table.getElementsByTagName("tr");
 	for (i = 0; i < tr.length; i++) {
-	  td = tr[i].getElementsByTagName("td")[0];
-	  if (td) {
-		txtValue = td.textContent || td.innerText;
-		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	  td1 = tr[i].getElementsByTagName("td")[0];
+	  td2 = tr[i].getElementsByTagName("td")[1];
+	  if (td1 || td2) {
+		txtValue1 = td1.textContent || td1.innerText;
+		txtValue2 = td2.textContent || td2.innerText;
+		if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+		  tr[i].style.display = "";
+		} else {
+		  tr[i].style.display = "none";
+		}
+	  }       
+	}
+  }
+
+  function searchWorker() {
+	var input, filter, table, tr, td, i, txtValue;
+	input = document.getElementById("myInput2");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("myTable2");
+	tr = table.getElementsByTagName("tr");
+	for (i = 0; i < tr.length; i++) {
+	  td1 = tr[i].getElementsByTagName("td")[0];
+	  td2 = tr[i].getElementsByTagName("td")[1];
+	  if (td1 || td2) {
+		txtValue1 = td1.textContent || td1.innerText;
+		txtValue2 = td2.textContent || td2.innerText;
+		if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
 		  tr[i].style.display = "";
 		} else {
 		  tr[i].style.display = "none";
@@ -71,6 +94,22 @@ function search() {
 		data: {product_id, count, building_id},
 		success: function(data){
 			console.log("added");
+		}
+	  });
+  }
+
+  function signContract(worker_id, building_id) {
+
+	var start = $("input[name=start_contract"+worker_id+"]").val();
+	var end = $("input[name=end_contract"+worker_id+"]").val();
+
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/contracts/sign",
+		type: "POST",
+		data: {worker_id, start, end, building_id},
+		success: function(data){
+			console.log("signed");
 		}
 	  });
   }

@@ -36,3 +36,6 @@ Route::get('/add_building', function () {
 
 ////////////     MATERIALS    ///////////////////
 Route::post('/materials/buy', 'BuildingsController@addMaterial');
+
+////////////     CONTRACTS    ///////////////////
+Route::post('/contracts/sign', 'BuildingsController@signContract');

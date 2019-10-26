@@ -62,14 +62,22 @@ class BuildingsController extends Controller
      */
     public function show(Request $request, Buildings $buildings)
     {
+
+        //add where to sql for specific building
+
         $building = Buildings::where('building_id', '=', $request->id)->get();
 
         $products = DB::table('products')->join('sellers','sellers.seller_id','=','products.sellers_seller_id')->get();
 
         $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->get();
 
+        $workers = DB::table('workers')->get();
 
-        return view('buildings.one',['building' => $building, 'products' => $products, 'purchases' => $purchases]);
+        $contracts = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->get();
+
+
+
+        return view('buildings.one',['building' => $building, 'products' => $products, 'purchases' => $purchases, 'workers' => $workers]);
     }
 
     /**
@@ -120,5 +128,22 @@ class BuildingsController extends Controller
         ]);
 
         return 'added';
+    }
+
+    public function signContract(Request $request)
+    {
+        DB::table('contracts')->insert([
+
+            [
+                'start_date' => $request->start,
+                'end_date' => $request->end,
+                'buildings_building_id' => $request->building_id,
+                'workers_worker_id' => $request->worker_id
+            ],
+           
+
+        ]);
+
+        return 'signed';
     }
 }

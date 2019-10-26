@@ -337,7 +337,7 @@ html{
     background-color: #105197!important;
 }
 
-#myInput {
+#myInput, #myInput2 {
     width: 100%;
     font-size: 14px;
     padding: 12px 20px 12px 40px;
@@ -345,22 +345,22 @@ html{
     margin-bottom: 12px;
   }
   
-  #myTable {
+  #myTable, #myTable2 {
     border-collapse: collapse;
     width: 100%;
     border: 1px solid #ddd;
     font-size: 16px;
   }
   
-  #myTable th, #myTable td {
+  #myTable th, #myTable td, #myTable2 th, #myTable2 td {
     text-align: left;
     padding: 12px;
   }
   
-  #myTable tr {
+  #myTable tr, #myTable2 tr {
     border-bottom: 1px solid #ddd;
   }
   
-  #myTable tr.header, #myTable tr:hover {
+  #myTable tr.header, #myTable tr:hover, #myTable2 tr.header, #myTable2 tr:hover {
     background-color: #f1f1f1;
   }

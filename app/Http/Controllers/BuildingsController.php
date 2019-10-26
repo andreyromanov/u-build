@@ -66,7 +66,10 @@ class BuildingsController extends Controller
 
         $products = DB::table('products')->join('sellers','sellers.seller_id','=','products.sellers_seller_id')->get();
 
-        return view('buildings.one',['building' => $building, 'products' => $products]);
+        $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->get();
+
+
+        return view('buildings.one',['building' => $building, 'products' => $products, 'purchases' => $purchases]);
     }
 
     /**

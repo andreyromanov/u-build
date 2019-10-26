@@ -37,7 +37,7 @@
 
           @guest
           <li class="nav-item">
-           <a href="/register" class="button w-button text-dark lh">Кабінет</a>
+           <a href="/login" class="button w-button text-dark lh">Кабінет</a>
          </li>
           @else
           <li class="nav-item">

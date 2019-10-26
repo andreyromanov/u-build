@@ -12,7 +12,10 @@
                  <div class="row">
                     <div class="col-md-6 border-right">
                      <label><b>Штат</b></label>
-
+                     <br>
+                    @foreach($contracts as $contract)
+                        {{$contract->name}} - {{$contract->position}} <br>
+                    @endforeach
                     </div>
                     <div class="col-md-6">
                     <label><b>Закупки</b></label>

@@ -73,11 +73,16 @@ class BuildingsController extends Controller
 
         $workers = DB::table('workers')->get();
 
-        $contracts = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->get();
+        $contracts = DB::table('contracts')->where('buildings_building_id', '=', $request->id)->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
 
 
 
-        return view('buildings.one',['building' => $building, 'products' => $products, 'purchases' => $purchases, 'workers' => $workers]);
+        return view('buildings.one',[
+            'building' => $building,
+            'products' => $products, 
+            'purchases' => $purchases, 
+            'workers' => $workers, 
+            'contracts' => $contracts]);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Buildings;
 use Illuminate\Http\Request;
+use App\Charts\RegisteredUsers;
 
 class BuildingsController extends Controller
 {
@@ -69,20 +70,32 @@ class BuildingsController extends Controller
 
         $products = DB::table('products')->join('sellers','sellers.seller_id','=','products.sellers_seller_id')->get();
 
-        $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->get();
+        $purchases = DB::table('purchases')->where('buildings_building_id', '=', $request->id)->join('products','products.product_id','=','purchases.products_product_id')->get();
 
         $workers = DB::table('workers')->get();
 
         $contracts = DB::table('contracts')->where('buildings_building_id', '=', $request->id)->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
+//dd($purchases);
+        $spent = 0;
 
+        foreach($purchases as $purch){
+            $spent += $purch->price * $purch->count;
+        }
 
+        $budget_rest = $building[0]->budjet - $spent;
+
+        $chart1 = new RegisteredUsers;
+        $chart1->labels(['Витрачено', 'Залишилось']);
+        $chart1->dataset('My dataset', 'pie', [$spent, $budget_rest])->backgroundColor([ '#ff0000', '#00ff00']);;
 
         return view('buildings.one',[
             'building' => $building,
             'products' => $products, 
             'purchases' => $purchases, 
             'workers' => $workers, 
-            'contracts' => $contracts]);
+            'contracts' => $contracts,
+            'chart1' => $chart1,
+            ]);
     }
 
     /**

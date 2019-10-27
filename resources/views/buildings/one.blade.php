@@ -7,21 +7,21 @@
         <div class="col-md-12">
             <div class="card">
             
-                <div class="card-header">Дані про об'єкт <b>{{$build->name}}</b>&nbsp;|&nbsp;Бюджет - <b>{{$build->budjet}} $</b>&nbsp;|&nbsp; Дати: <b>{{$build->start_date}} - {{$build->end_date}}</b></div>
+                <div class="card-header">Дані про об'єкт <b>{{$build->name}}</b>&nbsp;|&nbsp;Бюджет - <b>{{$build->budjet}} грн</b>&nbsp;|&nbsp; Дати: <b>{{$build->start_date}} - {{$build->end_date}}</b></div>
                 <div class="card-body">
-                 <div class="row">
-                    <div class="col-md-6 border-right">
+                 <div class="row building-info">
+                    <div class="col-md-6 border-right building-info">
                      <label><b>Штат</b></label>
                      <br>
                     @foreach($contracts as $contract)
-                        {{$contract->name}} - {{$contract->position}} <br>
+                        {{$contract->name}} - {{$contract->position}} <hr>
                     @endforeach
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 building-info">
                     <label><b>Закупки</b></label>
                     <br>
                     @foreach($purchases as $purch)
-                        {{$purch->name}} <br>
+                        {{$purch->name}}  - {{$purch->count}}<hr>
                     @endforeach
                     </div>
                  </div>
@@ -42,7 +42,6 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-materials" role="tab" aria-controls="nav-home" aria-selected="true">Матеріали</a>
                     <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-workers" role="tab" aria-controls="nav-profile" aria-selected="false">Працівники</a>
-                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
                 </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -117,7 +116,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><b>Статистика</b></div>
+                <div class="card-header"><b>Аналіз</b></div>
                 <div class="card-body">
                 </div>
             </div>
@@ -132,6 +131,17 @@
             <div class="card">
                 <div class="card-header"><b>Економіка</b></div>
                 <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                    <div height="400px">{!! $chart1->container() !!}</div>
+                    </div>
+                    <div class="col-md-4">
+                    2
+                    </div>
+                    <div class="col-md-4">
+                    3
+                    </div>
+                </div>
                 </div>
             </div>
             
@@ -139,4 +149,7 @@
     </div>
 </div>
 @endforeach
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+
+{!! $chart1->script() !!}
 @endsection

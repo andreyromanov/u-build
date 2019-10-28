@@ -93,7 +93,7 @@ function search() {
 		type: "POST",
 		data: {product_id, count, building_id},
 		success: function(data){
-			console.log("added");
+			console.log(data);
 		}
 	  });
   }

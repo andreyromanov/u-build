@@ -86,7 +86,25 @@ class BuildingsController extends Controller
 
         $chart1 = new RegisteredUsers;
         $chart1->labels(['Витрачено', 'Залишилось']);
-        $chart1->dataset('My dataset', 'pie', [$spent, $budget_rest])->backgroundColor([ '#ff0000', '#00ff00']);;
+        $chart1->dataset('My dataset', 'pie', [$spent, $budget_rest])->backgroundColor([ '#ff0000', '#00ff00']);
+
+
+        $labels = [];
+        $data = [];
+        $colors =[];
+        foreach($purchases as $purch){
+            //$rand_color = '#' . substr(md5(mt_rand()), 0, 6);
+
+            array_push($labels, $purch->name);
+
+            array_push($data, $purch->price * $purch->count);
+            
+            //array_push($colors, $rand_color);
+        }
+
+        $chart2 = new RegisteredUsers;
+        $chart2->labels($labels);
+        $chart2->dataset('My dataset', 'line', $data);
 
         return view('buildings.one',[
             'building' => $building,
@@ -95,6 +113,7 @@ class BuildingsController extends Controller
             'workers' => $workers, 
             'contracts' => $contracts,
             'chart1' => $chart1,
+            'chart2' => $chart2,
             ]);
     }
 

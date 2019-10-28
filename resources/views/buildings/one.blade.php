@@ -136,7 +136,8 @@
                     <div height="400px">{!! $chart1->container() !!}</div>
                     </div>
                     <div class="col-md-4">
-                    2
+                    <div height="400px">{!! $chart2->container() !!}</div>
+
                     </div>
                     <div class="col-md-4">
                     3
@@ -152,4 +153,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
 {!! $chart1->script() !!}
+{!! $chart2->script() !!}
+
 @endsection

@@ -136,13 +136,14 @@
                     <div height="400px">{!! $chart1->container() !!}</div>
                     </div>
                     <div class="col-md-4">
-                    <div height="400px">{!! $chart2->container() !!}</div>
+                    
 
                     </div>
                     <div class="col-md-4">
                     3
                     </div>
                 </div>
+                <div height="400px">{!! $chart2->container() !!}</div>
                 </div>
             </div>
             

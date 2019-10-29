@@ -91,6 +91,7 @@ class BuildingsController extends Controller
 
         $labels = [];
         $data = [];
+        $data2 = [];
         $colors =[];
         foreach($purchases as $purch){
             //$rand_color = '#' . substr(md5(mt_rand()), 0, 6);
@@ -98,6 +99,7 @@ class BuildingsController extends Controller
             array_push($labels, $purch->name);
 
             array_push($data, $purch->price * $purch->count);
+            array_push($data2, $purch->price * $purch->count * 2);
             
             //array_push($colors, $rand_color);
         }
@@ -105,6 +107,7 @@ class BuildingsController extends Controller
         $chart2 = new RegisteredUsers;
         $chart2->labels($labels);
         $chart2->dataset('My dataset', 'line', $data);
+        $chart2->dataset('My dataset', 'line', $data2);
 
         return view('buildings.one',[
             'building' => $building,

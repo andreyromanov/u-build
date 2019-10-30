@@ -72,7 +72,13 @@ class BuildingsController extends Controller
 
         $purchases = DB::table('purchases')->where('buildings_building_id', '=', $request->id)->join('products','products.product_id','=','purchases.products_product_id')->get();
 
-        $workers = DB::table('workers')->get();
+       // $workers = DB::table('workers')->get();
+
+       $workers =  DB::table('workers')->select('*')->whereNotIn('workers.worker_id',function($query) {
+
+            $query->select('contracts.workers_worker_id')->from('contracts');
+         
+         })->get();
 
         $contracts = DB::table('contracts')->where('buildings_building_id', '=', $request->id)->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
 //dd($purchases);

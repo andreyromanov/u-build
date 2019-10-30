@@ -94,6 +94,7 @@ function search() {
 		data: {product_id, count, building_id},
 		success: function(data){
 			console.log(data);
+			document.location.reload(true);
 		}
 	  });
   }
@@ -110,6 +111,7 @@ function search() {
 		data: {worker_id, start, end, building_id},
 		success: function(data){
 			console.log("signed");
+			document.location.reload(true);
 		}
 	  });
   }

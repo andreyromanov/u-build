@@ -118,6 +118,7 @@
             <div class="card">
                 <div class="card-header"><b>Аналіз</b></div>
                 <div class="card-body">
+                    Тут будуть показники діяльності ....
                 </div>
             </div>
             

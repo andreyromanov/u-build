@@ -131,19 +131,17 @@
             <div class="card">
                 <div class="card-header"><b>Економіка</b></div>
                 <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="row mb-5">
+                    <div class="col-md-6">
                     <div height="400px">{!! $chart1->container() !!}</div>
                     </div>
-                    <div class="col-md-4">
                     
-
-                    </div>
-                    <div class="col-md-4">
-                    3
+                    <div class="col-md-6">
+                    <div height="400px">{!! $chart3->container() !!}</div>
                     </div>
                 </div>
-                <div height="400px">{!! $chart2->container() !!}</div>
+                <hr>
+                <div height="400px" class="mt-5">{!! $chart2->container() !!}</div>
                 </div>
             </div>
             
@@ -155,5 +153,6 @@
 
 {!! $chart1->script() !!}
 {!! $chart2->script() !!}
+{!! $chart3->script() !!}
 
 @endsection

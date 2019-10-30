@@ -106,8 +106,12 @@ class BuildingsController extends Controller
 
         $chart2 = new RegisteredUsers;
         $chart2->labels($labels);
-        $chart2->dataset('My dataset', 'line', $data);
-        $chart2->dataset('My dataset', 'line', $data2);
+        $chart2->dataset('2018 рік', 'line', $data)->color('yellow');
+        $chart2->dataset('2019 рік', 'line', $data2)->color('blue');
+
+        $chart3 = new RegisteredUsers;
+        $chart3->labels(['One', 'Two', 'Three', 'Four']);
+        $chart3->dataset('Постачальники', 'bar', [1, 2, 3, 4])->color('red');
 
         return view('buildings.one',[
             'building' => $building,
@@ -117,6 +121,8 @@ class BuildingsController extends Controller
             'contracts' => $contracts,
             'chart1' => $chart1,
             'chart2' => $chart2,
+            'chart3' => $chart3,
+
             ]);
     }
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Economics;
 use Illuminate\Http\Request;
 use App\Charts\RegisteredUsers;
+use Illuminate\Support\Facades\DB;
+
 
 class EconomicsController extends Controller
 {
@@ -48,8 +50,35 @@ class EconomicsController extends Controller
         $chart4 = new RegisteredUsers;
         $chart4->labels($labels);
         $chart4->dataset('My dataset', 'pie', $data)->backgroundColor($colors);
+
+        //select sum spent to each seller
+       // $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->join('sellers','sellers.seller_id','=','products.sellers_seller_id')->get();
+    
+        $sellers = DB::table('sellers')->distinct()->get();
+        $sum=0;
+        $sums=[];
+        $sel_names=[];
+        $sel_colors =[];
+        foreach($sellers as $sell){
+            $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->where('sellers_seller_id', '=', $sell->seller_id)->get();
+            //dd($purchases);   
+            foreach($purchases as $pur){
+                    $sum+=$pur->count * $pur->price;
+                    
+                }
+                //dd($sum);
+                $rand_color = '#' . substr(md5(mt_rand()), 0, 6);
+                array_push($sel_colors, $rand_color);
+                array_push($sel_names, $sell->seller); 
+                array_push($sums, $sum); 
+        }
         
-        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4]);
+        $chart5 = new RegisteredUsers;
+        $chart5->labels($sel_names);
+        $chart5->dataset('My dataset', 'pie', $sums)->backgroundColor($sel_colors);
+
+        
+        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'chart5' => $chart5]);
     }
 
     /**

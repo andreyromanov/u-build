@@ -42,6 +42,10 @@
                         <h5>disp</h5>
                         </div>
                    </div>
+                   <hr>
+                   <h5 class="text-center mt-5 mb-5">Співвідношення постачальників</h5>
+                   <div height="400px">{!! $chart5->container() !!}</div>
+
                 </div>
             </div>
         </div>
@@ -53,4 +57,6 @@
 {!! $chart2->script() !!}
 {!! $chart3->script() !!}
 {!! $chart4->script() !!}
+{!! $chart5->script() !!}
+
 @endsection

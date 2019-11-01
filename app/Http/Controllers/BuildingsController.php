@@ -115,9 +115,29 @@ class BuildingsController extends Controller
         $chart2->dataset('2018 рік', 'line', $data)->color('yellow');
         $chart2->dataset('2019 рік', 'line', $data2)->color('blue');
 
+        //
+        $sellers = DB::table('sellers')->distinct()->get();
+        $sum=0;
+        $sums=[];
+        $sel_names=[];
+        $sel_colors =[];
+        foreach($sellers as $sell){
+            $purchases = DB::table('purchases')->where('buildings_building_id', '=', $request->id)->join('products','products.product_id','=','purchases.products_product_id')->where('sellers_seller_id', '=', $sell->seller_id)->get();
+            //dd($purchases);   
+            foreach($purchases as $pur){
+                    $sum+=$pur->count * $pur->price;
+                    
+                }
+                //dd($sum);
+                $rand_color = '#' . substr(md5(mt_rand()), 0, 6);
+                array_push($sel_colors, $rand_color);
+                array_push($sel_names, $sell->seller); 
+                array_push($sums, $sum); 
+        }
+        
         $chart3 = new RegisteredUsers;
-        $chart3->labels(['One', 'Two', 'Three', 'Four']);
-        $chart3->dataset('Постачальники', 'bar', [1, 2, 3, 4])->color('red');
+        $chart3->labels($sel_names);
+        $chart3->dataset('Постачальники', 'bar', $sums)->backgroundColor($sel_colors);
 
         return view('buildings.one',[
             'building' => $building,

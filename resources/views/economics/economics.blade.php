@@ -44,6 +44,13 @@
                    </div>
                    <hr>
                    <h5 class="text-center mt-5 mb-5">Співвідношення постачальників</h5>
+                   @foreach($sums as $sum)
+
+                   {{(round(($sum/$all_sum)*100)), 2}}%  <br>
+
+                   @endforeach
+
+                   {{print_r($test)}}
                    <div height="400px">{!! $chart5->container() !!}</div>
 
                 </div>

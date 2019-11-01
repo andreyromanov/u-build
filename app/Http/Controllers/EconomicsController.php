@@ -59,6 +59,8 @@ class EconomicsController extends Controller
         $sums=[];
         $sel_names=[];
         $sel_colors =[];
+        $all_sum=0;
+        $test = (object)[];
         foreach($sellers as $sell){
             $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->where('sellers_seller_id', '=', $sell->seller_id)->get();
             //dd($purchases);   
@@ -71,6 +73,10 @@ class EconomicsController extends Controller
                 array_push($sel_colors, $rand_color);
                 array_push($sel_names, $sell->seller); 
                 array_push($sums, $sum); 
+                $all_sum+=$sum;
+                $test->sum = $sum;
+                $test->seller = $sell->seller;
+                dd($test);
         }
         
         $chart5 = new RegisteredUsers;
@@ -78,7 +84,7 @@ class EconomicsController extends Controller
         $chart5->dataset('My dataset', 'pie', $sums)->backgroundColor($sel_colors);
 
         
-        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'chart5' => $chart5]);
+        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'chart5' => $chart5, 'all_sum' => $all_sum, 'sums' => $sums, 'test' => $test]);
     }
 
     /**

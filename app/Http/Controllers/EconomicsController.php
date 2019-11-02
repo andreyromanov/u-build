@@ -56,13 +56,15 @@ class EconomicsController extends Controller
     
         $sellers = DB::table('sellers')->distinct()->get();
         $sum=0;
+        $sum2=0;
         $sums=[];
         $sel_names=[];
         $sel_colors =[];
         $all_sum=0;
         $test = (object)[];
+        $pers = [];
         foreach($sellers as $sell){
-            $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->where('sellers_seller_id', '=', $sell->seller_id)->get();
+            $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->where('sellers_seller_id', '=', $sell->seller_id)->join('sellers','sellers_seller_id', '=', 'sellers.seller_id')->get();
             //dd($purchases);   
             foreach($purchases as $pur){
                     $sum+=$pur->count * $pur->price;
@@ -74,17 +76,24 @@ class EconomicsController extends Controller
                 array_push($sel_names, $sell->seller); 
                 array_push($sums, $sum); 
                 $all_sum+=$sum;
-                $test->sum = $sum;
-                $test->seller = $sell->seller;
-                dd($test);
         }
-        
+        //count persentage
+        foreach($sellers as $sell){
+            $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->where('sellers_seller_id', '=', $sell->seller_id)->join('sellers','sellers_seller_id', '=', 'sellers.seller_id')->get(); 
+            foreach($purchases as $pur){
+                    $sum2+=$pur->count * $pur->price;
+                }
+                $per = round((($sum2/$all_sum)*100) ,2);
+                $pers[] = ['seller' => $sell->seller, 'pers' => $per];
+        }
+        //dd($pers);
+
         $chart5 = new RegisteredUsers;
         $chart5->labels($sel_names);
         $chart5->dataset('My dataset', 'pie', $sums)->backgroundColor($sel_colors);
 
         
-        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'chart5' => $chart5, 'all_sum' => $all_sum, 'sums' => $sums, 'test' => $test]);
+        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'chart5' => $chart5, 'all_sum' => $all_sum, 'sums' => $sums, 'pers' => $pers]);
     }
 
     /**

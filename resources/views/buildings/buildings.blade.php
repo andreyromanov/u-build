@@ -20,7 +20,7 @@
             <div class="card">
                 <div class="card-body text-center">
                     <h4 class="card-title">{{$building->name}}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">{{$building->budjet}} $</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{$building->budjet}} грн</h6>
                     <p class="card-text">
                     <hr>
                     Початок: {{$building->start_date}}

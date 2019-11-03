@@ -100,10 +100,36 @@
                 </table>
                 </div>
 
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                3
                 </div>
 
+                <hr class="my-5">
+                <!--TASKS TASKS TASKS-->
+                <div class="row" style="max-height: 300px;overflov:auto;">
+                    <div class="col-md-12">
+                        <span class="my-3 float-left"><b>Задачі будівництва</b></span>
+                        <button class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">Додати задачу</button>
+                            <table id="myTable2">
+                    <tr class="header">
+                        <th style="width:25%;">Ім'я</th>
+                        <th style="width:15%;">Посада</th>
+                        <th style="width:10%;">Зарплата</th>
+                        <th style="width:5%;">Старт</th>
+                        <th style="width:5%;">Кінець</th>
+                        <th style="width:10%;"></th>
+                    </tr>
+                    @foreach($workers as $worker)
+                    <tr>
+                        <td>{{ $worker->name }}</td>
+                        <td>{{ $worker->position }}</td>
+                        <td>{{ $worker->salary }} грн</td>
+                        <td><input name="start_contract{{$worker->worker_id}}" type="date" class="form-control" required></td>
+                        <td><input name="end_contract{{$worker->worker_id}}" type="date" class="form-control" required></td>
+                        <td class="text-center"><button onclick="signContract({{ $worker->worker_id }}, {{ $build->building_id }})" class="btn btn-success"><i class="fas fa-plus nav-icon"></i></button></td>
+                    </tr>
+                    @endforeach
+
+                    </table>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -149,7 +175,42 @@
         </div>
     </div>
 </div>
+
+<!-- Modal NEW TASK-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Нова задача</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body py-5">
+        <input type="hidden" name="building_id" value="{{ $build->building_id }}">
+        <input type="hidden" name="status" value="0">
+
+        <label for="">Зміст задачі</label>
+        <input type="text" class="form-control mb-3">
+
+        <label for="">Категорія</label>
+        <select name="" id="" class="custom-select mb-3">
+        <option value="">---</option>
+        </select>
+
+        <label for="">Вартість роботи</label>
+        <input type="number" class="form-control mb-3" style="width:50%;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
+        <button type="button" class="btn btn-primary">Додати задачу</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endforeach
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
 {!! $chart1->script() !!}

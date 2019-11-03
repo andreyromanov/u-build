@@ -14,13 +14,13 @@ class SellersTableSeeder extends Seeder
         DB::table('sellers')->insert([
 
             [
-                'name' => 'BuildMaterials'
+                'seller' => 'BuildMaterials'
             ],
             [
-                'name' => 'StroyAgency'
+                'seller' => 'StroyAgency'
             ],
             [
-                'name' => 'Buud'
+                'seller' => 'Buud'
             ]
 
         ]);

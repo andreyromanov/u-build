@@ -115,3 +115,23 @@ function search() {
 		}
 	  });
   }
+
+  function addTask() {
+
+	var work_type = $("#work_type :selected").val();
+	var building_id = $("input[name=building_id]").val();
+	var text = $("input[name=text]").val();
+	var price = $("input[name=work_price]").val();
+	var status = $("input[name=status]").val();
+
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/tasks/add",
+		type: "POST",
+		data: {work_type, building_id, text, price, status},
+		success: function(data){
+			console.log("added task");
+			document.location.reload(true);
+		}
+	  });
+  }

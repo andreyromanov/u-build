@@ -144,12 +144,21 @@ class BuildingsController extends Controller
         $chart3->dataset('Постачальники', 'bar', $sums)->backgroundColor($sel_colors);
         //dd($request->id);
         //dd($sums);
+
+        //TASKS TASKS TASKS
+        $work_types = DB::table('work_types')->get();
+
+        $tasks = DB::table('plans')->where('buildings_building_id', '=', $request->id)->join('work_types','work_types.type_id','=','work_types_type_id')->get();
+
+
         return view('buildings.one',[
             'building' => $building,
             'products' => $products, 
             'purchases' => $purchases, 
             'workers' => $workers, 
             'contracts' => $contracts,
+            'work_types' => $work_types,
+            'tasks' => $tasks,
             'chart1' => $chart1,
             'chart2' => $chart2,
             'chart3' => $chart3,
@@ -222,5 +231,23 @@ class BuildingsController extends Controller
         ]);
 
         return 'signed';
+    }
+
+    public function addTask(Request $request)
+    {
+        DB::table('plans')->insert([
+
+            [
+                'work_types_type_id' => $request->work_type,
+                'buildings_building_id' => $request->building_id,
+                'text' => $request->text,
+                'work_price' => $request->price,
+                'status' => $request->status
+            ],
+           
+
+        ]);
+
+        return 'new task';
     }
 }

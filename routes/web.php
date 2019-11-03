@@ -39,3 +39,7 @@ Route::post('/materials/buy', 'BuildingsController@addMaterial');
 
 ////////////     CONTRACTS    ///////////////////
 Route::post('/contracts/sign', 'BuildingsController@signContract');
+
+////////////     TASKS    ///////////////////
+Route::post('/tasks/add', 'BuildingsController@addTask');
+

@@ -81,11 +81,19 @@ class BuildingsController extends Controller
          })->get();
 
         $contracts = DB::table('contracts')->where('buildings_building_id', '=', $request->id)->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
-//dd($purchases);
+        //dd($contracts);
         $spent = 0;
 
         foreach($purchases as $purch){
             $spent += $purch->price * $purch->count;
+        }
+
+        foreach($contracts as $contr){
+            $to = \Carbon\Carbon::createFromFormat('Y-m-d', $contr->end_date);
+            $from = \Carbon\Carbon::createFromFormat('Y-m-d', $contr->start_date);
+            $diff_in_days = $to->diffInDays($from);
+            //dd($diff_in_days);
+            $spent += $contr->salary * $diff_in_days;
         }
 
         $budget_rest = $building[0]->budjet - $spent;
@@ -111,9 +119,27 @@ class BuildingsController extends Controller
         }
 
         $chart2 = new RegisteredUsers;
-        $chart2->labels($labels);
-        $chart2->dataset('2018 рік', 'line', $data)->color('yellow');
-        $chart2->dataset('2019 рік', 'line', $data2)->color('blue');
+        $chart2->labels([
+            "Січень",
+            "Лютий", 
+            "Березень", 
+            "Квітень", 
+            "Травень", 
+            "Червень", 
+            "Липень", 
+            "Серпень", 
+            "Вересень", 
+            "Жовтень", 
+            "Листопад", 
+            "Грудень"
+            ]);
+
+        $current_year = [1000, 2112, 3453, 3345, 453, 7567, 4234, 3234, 544, 2334, 2343, 4344];
+        $prev_year = [100, 211, 345, 334, 453, 756, 423, 323, 544, 233, 234, 434];
+
+            
+        $chart2->dataset('2018 рік', 'line', $prev_year)->color('yellow');
+        $chart2->dataset('2019 рік', 'line', $current_year)->color('blue');
 
         //sellers bar
         $sellers = DB::table('sellers')->distinct()->get();

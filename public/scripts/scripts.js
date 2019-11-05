@@ -163,3 +163,11 @@ function search() {
 		}
 	  });
   }
+
+  function refreshTaskModal() {
+
+	var text = $("input[name=text]").val('');
+	var price = $("input[name=work_price]").val('');
+	var work_type = $("#work_type option[value='def']").attr("selected",true);
+
+  }

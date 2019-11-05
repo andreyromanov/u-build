@@ -235,7 +235,7 @@
 
         <label for="">Категорія</label>
         <select id="work_type" name="type" class="custom-select mb-3">
-        <option value="">---</option>
+        <option value="def">---</option>
         @foreach($work_types as $work_type)
         <option value="{{$work_type->type_id}}">{{$work_type->type_name}}</option>
         @endforeach
@@ -245,7 +245,7 @@
         <input type="number" name="work_price" class="form-control mb-3" style="width:50%;">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
+        <button onclick="refreshTaskModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
         <button onclick="addTask()" type="button" class="btn btn-primary">Додати задачу</button>
       </div>
     </div>

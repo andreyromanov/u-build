@@ -135,3 +135,31 @@ function search() {
 		}
 	  });
   }
+
+  function taskDone(id) {
+
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/tasks/done",
+		type: "POST",
+		data: {id},
+		success: function(data){
+			console.log("updated");
+			document.location.reload(true);
+		}
+	  });
+  }
+
+  function taskDelete(id) {
+
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/tasks/delete",
+		type: "POST",
+		data: {id},
+		success: function(data){
+			console.log("deleted");
+			document.location.reload(true);
+		}
+	  });
+  }

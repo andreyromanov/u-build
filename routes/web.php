@@ -42,4 +42,8 @@ Route::post('/contracts/sign', 'BuildingsController@signContract');
 
 ////////////     TASKS    ///////////////////
 Route::post('/tasks/add', 'BuildingsController@addTask');
+Route::post('/tasks/done', 'PlansController@taskDone');
+Route::post('/tasks/delete', 'PlansController@taskDelete');
+
+
 

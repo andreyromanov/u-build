@@ -105,50 +105,49 @@
                 <hr class="my-5">
                 <!--TASKS TASKS TASKS-->
 
-
-
-
                 <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-todo" role="tab" aria-controls="nav-home" aria-selected="true">Матеріали</a>
-                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-done" role="tab" aria-controls="nav-profile" aria-selected="false">Працівники</a>
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-todo" role="tab" aria-controls="nav-home" aria-selected="true">Зробити</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-done" role="tab" aria-controls="nav-profile" aria-selected="false">Виконано</a>
                 </div>
                 </nav>
 
-                <div class="row" style="max-height: 300px;overflow:auto;">
+                <div class="row" style="max-height: 350px;overflow:auto;">
                     <div class="col-md-12">
                         <span class="my-3 float-left"><b>Задачі будівництва</b></span>
                         <button class="btn btn-primary float-right mt-2" data-toggle="modal" data-target="#exampleModalCenter">Додати задачу</button>
                                         
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-todo" role="tabpanel" aria-labelledby="nav-home-tab">
-  <table id="myTable2">
-  <tr class="header">
+                <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-todo" role="tabpanel" aria-labelledby="nav-home-tab">
+                <table id="myTable2">
+                <tr class="header">
                         <th style="width:25%;">Задача</th>
                         <th style="width:15%;">Тип</th>
                         <th style="width:10%;">Вартість</th>
                         <th style="width:10%;"></th>
                     </tr>
                     @foreach($tasks as $task)
+                    @if($task->status == 0)
                     <tr>
                         <td>{{$task->text}}</td>
                         <td>{{$task->type_name}}</td>
                         <td>{{$task->work_price}} грн</td>
                         <td class="text-center">
-                        <button onclick="" class="btn btn-success">
+                        <button onclick="taskDone({{$task->plan_id}})" class="btn btn-success">
                             <i class="fas fa-check nav-icon"></i>
                         </button>
-                        <button onclick="" class="btn btn-danger ml-4">
+                        <button onclick="taskDelete({{$task->plan_id}})" class="btn btn-danger ml-4">
                             <i class="fas fa-trash nav-icon"></i>
                         </button>
                     </td>
                     </tr>
+                    @endif
                     @endforeach
 
-                    </table>
-  </div>
-  <div class="tab-pane fade" id="nav-done" role="tabpanel" aria-labelledby="nav-profile-tab">
-  <table id="myTable2">
+                </table>
+                </div>
+                <div class="tab-pane fade" id="nav-done" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <table id="myTable2">
                     <tr class="header">
                         <th style="width:25%;">Задача</th>
                         <th style="width:15%;">Тип</th>
@@ -156,6 +155,7 @@
                         <th style="width:10%;"></th>
                     </tr>
                     @foreach($tasks as $task)
+                    @if($task->status == 1)
                     <tr>
                         <td>{{$task->text}}</td>
                         <td>{{$task->type_name}}</td>
@@ -163,15 +163,12 @@
                         <td class="text-center">
                             </td>
                     </tr>
+                    @endif
                     @endforeach
 
                     </table>
-  </div>
-</div>
-                        
-                        
-                        
-                        
+                    </div>
+                  </div>
                     </div>
                 </div>
                 </div>

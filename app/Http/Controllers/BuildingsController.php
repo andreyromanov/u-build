@@ -133,6 +133,10 @@ class BuildingsController extends Controller
             "Листопад", 
             "Грудень"
             ]);
+            //date purchases
+        $post = Mjblog::whereYear('created_at', '=', $year)
+            ->whereMonth('created_at', '=', $month)
+            ->get();
 
         $current_year = [1000, 2112, 3453, 3345, 453, 7567, 4234, 3234, 544, 2334, 2343, 4344];
         $prev_year = [100, 211, 345, 334, 453, 756, 423, 323, 544, 233, 234, 434];

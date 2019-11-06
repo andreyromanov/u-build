@@ -21,7 +21,16 @@ class WorksTableSeeder extends Seeder
             ],
             [
                 'type_name' => 'Монтаж'
-            ]
+            ],
+            [
+                'type_name' => 'Електрика'
+            ],
+            [
+                'type_name' => 'Сантехнічні'
+            ],
+            [
+                'type_name' => 'Кровельні'
+            ],
 
         ]);
     }

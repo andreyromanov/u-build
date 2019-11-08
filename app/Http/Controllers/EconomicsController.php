@@ -92,8 +92,28 @@ class EconomicsController extends Controller
         $chart5->labels($sel_names);
         $chart5->dataset('My dataset', 'pie', $sums)->backgroundColor($sel_colors);
 
+        //Прибуток
+
+        $income = DB::table('plans')->join('work_types','work_types.type_id','=','plans.work_types_type_id')->where('status', '=', 1)->get(); 
+        //dd($income);
+        $income_total = 0;
+        foreach($income as $in){
+            $income_total += $in->work_price;
+        }
+         //dd($income_total);
+
         
-        return view('economics.economics', ['economics' => $economics, 'chart' => $chart, 'chart2' => $chart2, 'chart3' => $chart3, 'chart4' => $chart4, 'chart5' => $chart5, 'all_sum' => $all_sum, 'sums' => $sums, 'pers' => $pers]);
+        return view('economics.economics', [
+                                            'economics' => $economics,
+                                            'income_total' =>  $income_total,
+                                            'chart' => $chart, 
+                                            'chart2' => $chart2, 
+                                            'chart3' => $chart3, 
+                                            'chart4' => $chart4, 
+                                            'chart5' => $chart5, 
+                                            'all_sum' => $all_sum, 
+                                            'sums' => $sums, 
+                                            'pers' => $pers]);
     }
 
     /**

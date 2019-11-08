@@ -1,6 +1,32 @@
 @extends('layouts.master')
 
 @section('content')
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Прибуток</div>
+                <div class="card-body">
+                    
+                    <div class="row text-center">
+                        <div class="col-md-6 border-right">
+                       Дохід - {{$income_total}} грн <br>
+                       Чистий дохід - {{$income_total - ($income_total*20)/100}} грн
+                        </div>
+                        <div class="col-md-6">
+                        
+                        
+                        </div>
+                   </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -56,6 +82,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
 {!! $chart->script() !!}

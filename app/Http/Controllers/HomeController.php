@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+
+        $buildings = DB::table('buildings')->where('users_id',$user->id)->get();
+
+        $buildingsCount = $buildings->count();
+
+        return view('home',['buildingsCount' => $buildingsCount]);
     }
 
     public function profile()

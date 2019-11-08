@@ -3,25 +3,63 @@
 @section('content')
 <div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Панель</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
                     <div class="row p-2 text-center">
-                        <img class="preloader m-auto" src="../img/load/45.gif">
-                        <div class="col-md-12 border" style="display: none;"></div>
+                                
+                                <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                
+                                <h4 class="card-subtitle mb-2 text-muted">Об'єкти</h4>
+                                <p class="card-text">
+                                <hr>
+                                <h3>{{$buildingsCount}}</h3>
+                                <hr>
+                                Завершено - 
+                                </p>
+                                
+                            </div>
+                            </div>
+                            </div>
+
+                            <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                
+                                <h4 class="card-subtitle mb-2 text-muted">Контракти</h4>
+                                <p class="card-text">
+                                <hr>
+                                <h3>{{$buildingsCount}}</h3>
+                                <hr>
+                                Завершено - 
+                                </p>
+                                
+                            </div>
+                            </div>
+                            </div>
+
+                            <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                
+                                <h4 class="card-subtitle mb-2 text-muted">Задачі</h4>
+                                <p class="card-text">
+                                <hr>
+                                <h3>{{$buildingsCount}}</h3>
+                                <hr>
+                                Завершено - 
+                                </p>
+                                
+                            </div>
+                            </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <button onclick="showUserInfo({{Auth::user()->id}})" class="btn btn-primary">
-                        SHOW USER INFO
-                    </button>
                 </div>
             </div>
         </div>

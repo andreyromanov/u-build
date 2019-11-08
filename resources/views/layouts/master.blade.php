@@ -133,6 +133,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/profile" class="nav-link">
+                  <i class="far fa-user nav-icon"></i>
+                  <p>Менеджер</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{ route('logout') }}" class="nav-link">
                 <i class="fas fa-door-open"></i>
@@ -141,12 +147,6 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
               </li>
             </ul>
           </li>

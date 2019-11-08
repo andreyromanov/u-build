@@ -11,6 +11,8 @@
 |
 */
 
+////////////     SIMPLE ROUTES    ///////////////////
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,7 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'HomeController@profile')->name('home');
+Route::post('/update_profile', 'HomeController@updateProfile');
+
+
 Route::post('/home/user', 'HomeController@showUserInfo')->name('home.userinfo');
+
+////////////     BASIC ROUTES    ///////////////////
 
 Route::get('/economics', 'EconomicsController@index')->name('economics');
 
@@ -44,6 +52,7 @@ Route::post('/contracts/sign', 'BuildingsController@signContract');
 Route::post('/tasks/add', 'BuildingsController@addTask');
 Route::post('/tasks/done', 'PlansController@taskDone');
 Route::post('/tasks/delete', 'PlansController@taskDelete');
+
 
 
 

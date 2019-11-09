@@ -33,7 +33,7 @@
                                 <h4 class="card-subtitle mb-2 text-muted">Контракти</h4>
                                 <p class="card-text">
                                 <hr>
-                                <h3>{{$buildingsCount}}</h3>
+                                <h3>{{$contractsCount}}</h3>
                                 <hr>
                                 Завершено - 
                                 </p>
@@ -49,7 +49,7 @@
                                 <h4 class="card-subtitle mb-2 text-muted">Задачі</h4>
                                 <p class="card-text">
                                 <hr>
-                                <h3>{{$buildingsCount}}</h3>
+                                <h3>{{$plansCount}}</h3>
                                 <hr>
                                 Завершено - 
                                 </p>

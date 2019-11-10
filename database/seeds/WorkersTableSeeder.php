@@ -66,6 +66,30 @@ class WorkersTableSeeder extends Seeder
                 'name' => 'Симонів Петро',
                 'salary' => 700
             ],
+
+            [
+                'position' => 'Каменяр',
+                'name' => 'Котляр Іван',
+                'salary' => 500
+            ],
+
+            [
+                'position' => 'Каменяр',
+                'name' => 'Шумко Володимир',
+                'salary' => 450
+            ],
+
+            [
+                'position' => 'Водій',
+                'name' => 'Стусенко Віктор',
+                'salary' => 900
+            ],
+
+            [
+                'position' => 'Водій',
+                'name' => 'Іванко Шелест',
+                'salary' => 750
+            ],
            
 
         ]);

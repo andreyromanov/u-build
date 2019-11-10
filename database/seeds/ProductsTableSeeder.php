@@ -45,7 +45,37 @@ class ProductsTableSeeder extends Seeder
                 'name' => 'арматура',
                 'price' => 800,
                 'sellers_seller_id' => 1,
-            ]
+            ],
+            [
+                'name' => 'фарба',
+                'price' => 359,
+                'sellers_seller_id' => 1, 
+            ],
+            [
+                'name' => 'фарба',
+                'price' => 350,
+                'sellers_seller_id' => 2, 
+            ],
+            [
+                'name' => 'фарба',
+                'price' => 369,
+                'sellers_seller_id' => 3, 
+            ],
+            [
+                'name' => 'дроти',
+                'price' => 50,
+                'sellers_seller_id' => 1, 
+            ],
+            [
+                'name' => 'дроти',
+                'price' => 50,
+                'sellers_seller_id' => 2, 
+            ],
+            [
+                'name' => 'дроти',
+                'price' => 55,
+                'sellers_seller_id' => 3, 
+            ],
 
         ]);
     }

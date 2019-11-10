@@ -31,6 +31,10 @@ class WorksTableSeeder extends Seeder
             [
                 'type_name' => 'Кровельні'
             ],
+            [
+                'type_name' => 'Логістика'
+            ],
+            
 
         ]);
     }

@@ -20,6 +20,22 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '1996-11-27',
                 'updated_at' => '2000-1-1'
             ],
+
+            [
+                'name' => 'oldadmin',
+                'email' => 'oldadmin@gmail.com',
+                'password' => bcrypt('111111'),
+                'created_at' => '1993-12-11',
+                'updated_at' => '2000-1-1'
+            ],
+
+            [
+                'name' => 'oldadmin2',
+                'email' => 'oldadmin2@gmail.com',
+                'password' => bcrypt('111111'),
+                'created_at' => '1994-12-11',
+                'updated_at' => '2000-1-1'
+            ],
            
 
         ]);

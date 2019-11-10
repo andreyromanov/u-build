@@ -33,7 +33,23 @@ class BuildingsTableSeeder extends Seeder
                 'start_date' => '2019-7-7',
                 'end_date' => '2022-2-2',
                 'users_id' => 1  
-            ]
+            ],
+
+
+            [
+                'name' => 'DownTown',
+                'budjet' => 10000,
+                'start_date' => '2017-12-12',
+                'end_date' => '2018-11-11',
+                'users_id' => 2  
+            ],
+            [
+                'name' => 'CityHouse',
+                'budjet' => 20000,
+                'start_date' => '2017-3-8',
+                'end_date' => '2018-4-10',
+                'users_id' => 2  
+            ],
 
         ]);
     }

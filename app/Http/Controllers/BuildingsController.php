@@ -232,12 +232,15 @@ class BuildingsController extends Controller
 
     public function addMaterial(Request $request)
     {
+        $date =  date('Y-m-d');
+
         DB::table('purchases')->insert([
 
             [
                 'products_product_id' => $request->product_id,
                 'count' => $request->count,
-                'buildings_building_id' => $request->building_id
+                'buildings_building_id' => $request->building_id,
+                'purch_date' => $date
             ],
            
 

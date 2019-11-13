@@ -182,7 +182,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><b>Аналіз</b></div>
+                <div class="card-header"><b>Економіка</b></div>
                 <div class="card-body">
                     Тут будуть показники діяльності ....
                 </div>
@@ -196,7 +196,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><b>Економіка</b></div>
+                <div class="card-header"><b>Аналіз</b></div>
                 <div class="card-body">
                 <div class="row mb-5">
                     <div class="col-md-6">

@@ -82,7 +82,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Економіка
+                Аналіз
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -90,7 +90,7 @@
               <li class="nav-item">
                 <a href="/economics" class="nav-link">
                  <i class="fab fa-bitcoin"></i>
-                  <p>Economics</p>
+                  <p>Аналіз</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -105,7 +105,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Аналіз
+                Економіка
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -113,7 +113,7 @@
               <li class="nav-item">
                 <a href="/statistics" class="nav-link">
                  <i class="fas fa-chart-pie"></i>
-                  <p>Statistics</p>
+                  <p>Економіка</p>
                 </a>
               </li>
               <li class="nav-item">

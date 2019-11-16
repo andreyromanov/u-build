@@ -90,36 +90,13 @@
               <li class="nav-item">
                 <a href="/economics" class="nav-link">
                  <i class="fab fa-bitcoin"></i>
-                  <p>Аналіз</p>
+                  <p>Статистика</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Економіка
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/statistics" class="nav-link">
-                 <i class="fas fa-chart-pie"></i>
-                  <p>Економіка</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
+                  <p>Економіка</p>
                 </a>
               </li>
             </ul>

@@ -199,16 +199,21 @@
                 <div class="card-header"><b>Аналіз</b></div>
                 <div class="card-body">
                 <div class="row mb-5">
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-center">
+                    <h5>Бюджет будівництва</h5>
                     <div height="400px">{!! $chart1->container() !!}</div>
                     </div>
                     
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-center">
+                    <h5>Співвідношення постачальників удівництва</h5>
                     <div height="400px">{!! $chart3->container() !!}</div>
                     </div>
                 </div>
                 <hr>
-                <div height="400px" class="mt-5">{!! $chart2->container() !!}</div>
+                <div class="col-md-12 text-center my-5">
+                    <h5>Порівняння витрат</h5>
+                    <div height="400px">{!! $chart2->container() !!}</div>
+                </div>
                 </div>
             </div>
             

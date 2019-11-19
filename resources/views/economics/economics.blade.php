@@ -69,10 +69,10 @@
                         </div>
                    </div>
                    <hr>
-                   <h5 class="text-center mt-5 mb-5">Співвідношення постачальників</h5>
+                   <h5 class="text-center mt-5">Співвідношення постачальників компанії</h5>
 
                    <div height="400px">{!! $chart5->container() !!}</div>
-                    <div class="text-center py-4">
+                    <div class="text-center pb-4">
                    @foreach($pers as $p)
                     <label class="ml-5" style="font-weight:300;font-size:18px">{{$p['seller']}} - {{$p['pers']}}%</label>
                    @endforeach

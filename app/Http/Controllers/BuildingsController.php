@@ -99,7 +99,7 @@ class BuildingsController extends Controller
         $budget_rest = $building[0]->budjet - $spent;
 
         $chart1 = new RegisteredUsers;
-        $chart1->labels(['Витрачено', 'Залишилось']);
+        $chart1->labels(['Витрачено, грн', 'Залишилось, грн']);
         $chart1->dataset('My dataset', 'pie', [$spent, $budget_rest])->backgroundColor([ '#ff0000', '#00ff00']);
 
 
@@ -171,7 +171,7 @@ class BuildingsController extends Controller
         
         $chart3 = new RegisteredUsers;
         $chart3->labels($sel_names);
-        $chart3->dataset('Постачальники', 'bar', $sums)->backgroundColor($sel_colors);
+        $chart3->dataset('Постачальники', 'pie', $sums)->backgroundColor($sel_colors);
         //dd($request->id);
         //dd($sums);
 

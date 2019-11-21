@@ -56,18 +56,6 @@
                         <h5>poligon</h5>
                         </div>
                    </div>
-                   <div class="row border-top text-center">
-                        <div class="col-md-6 border-right">
-                        
-                        <div height="400px">{!! $chart3->container() !!}</div>
-                        <h5>top</h5>
-                        </div>
-                        <div class="col-md-6">
-                        
-                        <div height="400px">{!! $chart4->container() !!}</div>
-                        <h5>disp</h5>
-                        </div>
-                   </div>
                    <hr>
                    <h5 class="text-center mt-5">Співвідношення постачальників компанії</h5>
 
@@ -87,8 +75,6 @@
 
 {!! $chart->script() !!}
 {!! $chart2->script() !!}
-{!! $chart3->script() !!}
-{!! $chart4->script() !!}
 {!! $chart5->script() !!}
 
 @endsection

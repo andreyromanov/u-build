@@ -89,13 +89,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/economics" class="nav-link">
-                 <i class="fab fa-bitcoin"></i>
+                <i class="nav-icon fas fa-chart-pie"></i>
                   <p>Статистика</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/statistics" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fab fa-bitcoin"></i>
                   <p>Економіка</p>
                 </a>
               </li>
@@ -103,7 +103,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+            <i class="far fa-circle nav-icon"></i>
               <p>
                 Профіль
                 <i class="right fas fa-angle-left"></i>

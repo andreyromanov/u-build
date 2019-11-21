@@ -39,12 +39,17 @@ class HomeController extends Controller
         $plans = DB::table('plans')->where('status', 0)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->join('users','users.id','=','buildings.users_id')->where('users_id',$user->id)->get();
 
         $plansCount = $plans->count();
+
+        $plans_done = DB::table('plans')->where('status', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->join('users','users.id','=','buildings.users_id')->where('users_id',$user->id)->get();
+
+        $plansCount_done = $plans_done->count();
         //dd($plans);
 
         return view('home',[
             'buildingsCount' => $buildingsCount,
             'contractsCount' => $contractsCount,
-            'plansCount' => $plansCount
+            'plansCount' => $plansCount,
+            'plansCount_done' => $plansCount_done
             ]);
     }
 

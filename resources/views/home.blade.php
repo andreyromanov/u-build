@@ -51,7 +51,7 @@
                                 <hr>
                                 <h3>{{$plansCount}}</h3>
                                 <hr>
-                                Завершено - 
+                                Завершено - {{$plansCount_done}}
                                 </p>
                                 
                             </div>

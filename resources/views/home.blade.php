@@ -19,7 +19,7 @@
                                 <hr>
                                 <h3>{{$buildingsCount}}</h3>
                                 <hr>
-                                Завершено - 
+                                Завершено - {{$buildingsCount_done}}
                                 </p>
                                 
                             </div>
@@ -35,7 +35,7 @@
                                 <hr>
                                 <h3>{{$contractsCount}}</h3>
                                 <hr>
-                                Завершено - 
+                                Завершено - {{$contractsCount_done}}
                                 </p>
                                 
                             </div>

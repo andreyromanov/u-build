@@ -23,11 +23,11 @@
                         <tbody>
                             <tr>
                             <td>Прибуток</td>
-                            <td>тис.грн.</td>
-                            <td>100</td>
-                            <td>@150</td>
-                            <td>50</td>
-                            <td>50%</td>
+                            <td>грн.</td>
+                            <td>{{$income_total_prev}}</td>
+                            <td>{{$income_total}}</td>
+                            <td>{{$income_total - $income_total_prev}}</td>
+                            <td>{{ round(($income_total - $income_total_prev) / (($income_total + $income_total_prev) / 2)  * 100, 2) }}</td>
                             </tr>
                             
                         </tbody>

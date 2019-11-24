@@ -30,9 +30,8 @@ Route::post('/home/user', 'HomeController@showUserInfo')->name('home.userinfo');
 
 Route::get('/economics', 'EconomicsController@index')->name('economics');
 
-Route::get('/statistics', function () {
-    return view('statistics.statistics');
-});
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+
 ////////////     BUILDINGS    ///////////////////
 Route::get('/buildings/{id}', 'BuildingsController@index');
 Route::get('/building_one/{id}', 'BuildingsController@show');

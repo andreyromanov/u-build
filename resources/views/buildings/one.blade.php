@@ -215,6 +215,7 @@
                     <div height="400px">{!! $chart2->container() !!}</div>
                 </div>
                 </div>
+                <button onclick="delete_build()" type="button" class="btn btn-danger m-2" style="width:159px;float:right!important;">Видалити</button>
             </div>
             
         </div>
@@ -257,7 +258,42 @@
   </div>
 </div>
 
+<!-- Modal OLD BUILDING-->
+<div class="modal fade" id="old" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Кінець будівництва</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body py-5">
+        <input type="hidden" name="building_id" value="{{ $build->building_id }}">
+        <p>Дата завершення будівництва пройшла. Архівувати дані про будівництво?</p>
+      </div>
+      <div class="modal-footer">
+        <button onclick="refreshTaskModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+        <button onclick="archive()" type="button" class="btn btn-primary">Архівувати</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+@if(date('Y-m-d')>$build->end_date)
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#old').modal('show');
+    });
+</script>
+@endif
+
 @endforeach
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 

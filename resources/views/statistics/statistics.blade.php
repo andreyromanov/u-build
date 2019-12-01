@@ -22,7 +22,43 @@
                         </thead>
                         <tbody>
                             <tr>
-                            <td>Прибуток</td>
+                            <td>Валовий прибуток</td>
+                            <td>грн.</td>
+                            <td>{{$income_total_prev}}</td>
+                            <td>{{$income_total}}</td>
+                            <td>{{$income_total - $income_total_prev}}</td>
+                            <td>{{ round(($income_total - $income_total_prev) / (($income_total + $income_total_prev) / 2)  * 100, 2) }}</td>
+                            </tr>
+
+                            <tr>
+                            <td>Чистий прибуток</td>
+                            <td>грн.</td>
+                            <td>{{$income_total_prev}}</td>
+                            <td>{{$income_total}}</td>
+                            <td>{{$income_total - $income_total_prev}}</td>
+                            <td>{{ round(($income_total - $income_total_prev) / (($income_total + $income_total_prev) / 2)  * 100, 2) }}</td>
+                            </tr>
+
+                            <tr>
+                            <td>Продуктивність праці</td>
+                            <td>грн.</td>
+                            <td>{{$income_total_prev}}</td>
+                            <td>{{$income_total}}</td>
+                            <td>{{$income_total - $income_total_prev}}</td>
+                            <td>{{ round(($income_total - $income_total_prev) / (($income_total + $income_total_prev) / 2)  * 100, 2) }}</td>
+                            </tr>
+
+                            <tr>
+                            <td>Виролення</td>
+                            <td>грн.</td>
+                            <td>{{$income_total_prev}}</td>
+                            <td>{{$income_total}}</td>
+                            <td>{{$income_total - $income_total_prev}}</td>
+                            <td>{{ round(($income_total - $income_total_prev) / (($income_total + $income_total_prev) / 2)  * 100, 2) }}</td>
+                            </tr>
+
+                            <tr>
+                            <td>Трудомісткість</td>
                             <td>грн.</td>
                             <td>{{$income_total_prev}}</td>
                             <td>{{$income_total}}</td>

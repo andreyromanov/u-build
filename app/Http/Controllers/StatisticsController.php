@@ -94,7 +94,7 @@ class StatisticsController extends Controller
 
         //Прибуток
 
-        $income = DB::table('plans')->join('work_types','work_types.type_id','=','plans.work_types_type_id')->where('status', '=', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->whereYear('end_date', '=', 2019)->get(); 
+        $income = DB::table('plans')->join('work_types','work_types.type_id','=','plans.work_types_type_id')->where('status', '=', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->whereYear('end_date', '=', 2020)->get(); 
         $income_prev = DB::table('plans')->join('work_types','work_types.type_id','=','plans.work_types_type_id')->where('status', '=', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->whereYear('end_date', '=', 2018)->get(); 
 
         //dd($income);

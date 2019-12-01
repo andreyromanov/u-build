@@ -225,9 +225,12 @@ class BuildingsController extends Controller
      * @param  \App\Buildings  $buildings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buildings $buildings)
+    public function destroy(Request $request)
     {
-        //
+
+        Buildings::where('building_id', $request->id)->delete();
+
+        return 'deleted';
     }
 
     public function addMaterial(Request $request)

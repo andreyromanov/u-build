@@ -36,6 +36,7 @@ Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 Route::get('/buildings/{id}', 'BuildingsController@index');
 Route::get('/building_one/{id}', 'BuildingsController@show');
 Route::post('/register_building', 'BuildingsController@store');
+Route::post('/building/destroy', 'BuildingsController@destroy');
 
 Route::get('/add_building', function () {
     return view('buildings.add');

@@ -215,7 +215,7 @@
                     <div height="400px">{!! $chart2->container() !!}</div>
                 </div>
                 </div>
-                <button onclick="delete_build()" type="button" class="btn btn-danger m-2" style="width:159px;float:right!important;">Видалити</button>
+                <button onclick="delete_build('{{ $build->building_id }}', '{{ Auth::user()->id }}')" type="button" class="btn btn-danger m-2" style="width:159px;float:right!important;">Видалити</button>
             </div>
             
         </div>

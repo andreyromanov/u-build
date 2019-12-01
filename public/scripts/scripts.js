@@ -171,3 +171,17 @@ function search() {
 	var work_type = $("#work_type option[value='def']").attr("selected",true);
 
   }
+
+  function delete_build(id, admin) {
+
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/building/destroy",
+		type: "POST",
+		data: {id},
+		success: function(data){
+			console.log("deleted");
+			document.location.href = '/buildings/'+admin;
+		}
+	  });
+  }

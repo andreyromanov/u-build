@@ -52,7 +52,7 @@
                             <td>Виролення</td>
                             <td>грн.</td>
                             <td>{{$income_total_prev}}</td>
-                            <td>{{$income_total}}</td>
+                            <td>{{round($plansCount_done_cur,2)}}</td>
                             <td>{{$income_total - $income_total_prev}}</td>
                             <td>{{ round(($income_total - $income_total_prev) / (($income_total + $income_total_prev) / 2)  * 100, 2) }}</td>
                             </tr>

@@ -109,6 +109,11 @@ class StatisticsController extends Controller
         }
          //dd($income_total);
 
+         //вироблення
+        $plans_done = DB::table('plans')->where('status', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->get();
+        //dd($plans_done);
+        $plansCount_done_cur = ($plans_done->count())/365;
+
         
         return view('statistics.statistics', [
                                             'economics' => $economics,
@@ -121,7 +126,9 @@ class StatisticsController extends Controller
                                             'chart5' => $chart5, 
                                             'all_sum' => $all_sum, 
                                             'sums' => $sums, 
-                                            'pers' => $pers]);
+                                            'pers' => $pers,
+                                            'plansCount_done_cur' => $plansCount_done_cur
+                                            ]);
     }
 
     /**

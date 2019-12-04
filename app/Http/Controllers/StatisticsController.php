@@ -114,11 +114,26 @@ class StatisticsController extends Controller
         //dd($plans_done);
         $plansCount_done_cur = ($plans_done->count())/365;
 
+        //трудомісткість
+        $work_cur = 365/($plans_done->count());
+
+        //продуктивність
+        $prod_cur = round($plans_done->count()/$work_cur, 2);
+       
+        $chart6 = new RegisteredUsers;
+        $chart6->labels([]);
+        $chart6->dataset('Минулий', 'bar', [1000])->backgroundColor("tomato");
+        $chart6->dataset('Поточний', 'bar', [$income_total])->backgroundColor("lightgreen");
+
+        $chart7 = new RegisteredUsers;
+        $chart7->labels([]);
+        $chart7->dataset('Минулий', 'bar', [0.1])->backgroundColor("lightblue");
+        $chart7->dataset('Поточний', 'bar', [$prod_cur])->backgroundColor("green");
         
         return view('statistics.statistics', [
                                             'economics' => $economics,
                                             'income_total' =>  $income_total,
-                                            'income_total_prev' =>  $income_total_prev,
+                                            'income_total_prev' =>  1000,
                                             'chart' => $chart, 
                                             'chart2' => $chart2, 
                                             'chart3' => $chart3, 
@@ -127,7 +142,17 @@ class StatisticsController extends Controller
                                             'all_sum' => $all_sum, 
                                             'sums' => $sums, 
                                             'pers' => $pers,
-                                            'plansCount_done_cur' => $plansCount_done_cur
+                                            'plansCount_done_prev' => 0.01,
+                                            'plansCount_done_cur' => $plansCount_done_cur,
+
+                                            'prod_prev' => 0.1,
+                                            'prod_cur' => $prod_cur,
+
+                                            'work_prev' => 55,
+                                            'work_cur' => $work_cur,
+
+                                            'chart6' => $chart6,
+                                            'chart7' => $chart7,
                                             ]);
     }
 

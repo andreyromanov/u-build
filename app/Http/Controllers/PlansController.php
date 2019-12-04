@@ -70,8 +70,11 @@ class PlansController extends Controller
     public function taskDone(Request $request, Plans $plans)
     {
         Plans::where('plan_id', $request->id)->update(['status' => 1]);
+        Plans::where('plan_id', $request->id)->update(
+            ['done_date' => date('Y-m-d')]
+        );
         
-        return 'deleted';
+        return 'done';
     }
 
     /**

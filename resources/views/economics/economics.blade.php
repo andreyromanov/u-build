@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container mt-3">
+<div class="container mt-3" style="display:none">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -31,7 +31,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">ECONOMIKA</div>
+                <div class="card-header"></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -40,11 +40,8 @@
                         </div>
                     @endif
                     
-                    @foreach($economics as $economica)
-                        {{$economica->name}} - {{$economica->count}} - {{$economica->cost}}<br>
-                    @endforeach
-                    
-                    <div class="row text-center">
+                                       
+                    <div class="row text-center" style="display:none">
                         <div class="col-md-6 border-right">
                             
                             <div height="400px">{!! $chart->container() !!}</div>

@@ -101,7 +101,16 @@ class BuildingsController extends Controller
         $chart1 = new RegisteredUsers;
         $chart1->labels(['Витрачено, грн', 'Залишилось, грн']);
         $chart1->dataset('My dataset', 'pie', [$spent, $budget_rest])->backgroundColor([ '#ff0000', '#00ff00']);
-
+        $chart1->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'display'=>false
+                    ]
+                ]
+            ]
+        ]);
+        
 
         $labels = [];
         $data = [];
@@ -141,9 +150,23 @@ class BuildingsController extends Controller
         $current_year = [1000, 2112, 3453, 3345, 453, 7567, 4234, 3234, 544, 2334, 2343, 4344];
         $prev_year = [100, 211, 345, 334, 453, 756, 423, 323, 544, 233, 234, 434];
 
-            
+        
         $chart2->dataset('2018 рік', 'line', $prev_year)->color('yellow');
         $chart2->dataset('2019 рік', 'line', $current_year)->color('blue');
+        $chart2->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'scaleLabel' =>
+                        [
+                            'display' => true,
+                            'labelString' => 'Витрати, грн.',
+                        ],
+                    ]
+                ]
+            ]
+        ]);
+        
 
         //sellers bar
         $sellers = DB::table('sellers')->distinct()->get();
@@ -174,6 +197,15 @@ class BuildingsController extends Controller
         $chart3->dataset('Постачальники', 'pie', $sums)->backgroundColor($sel_colors);
         //dd($request->id);
         //dd($sums);
+        $chart3->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'display'=>false
+                    ]
+                ]
+            ]
+        ]);
 
         //TASKS TASKS TASKS
         $work_types = DB::table('work_types')->get();

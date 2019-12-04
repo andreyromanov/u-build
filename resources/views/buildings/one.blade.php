@@ -178,7 +178,7 @@
     </div>
 </div>
 
-<div class="container mt-3">
+<div class="container mt-3" style="display:none">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">

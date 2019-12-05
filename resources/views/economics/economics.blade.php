@@ -31,26 +31,57 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"></div>
+                <div class="card-header">Статичтичні показники</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <div class="row text-center mb-5">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th scope="col">Тип</th>
+                            <th scope="col">Од.вим.</th>
+                            <th scope="col">Минулий</th>
+                            <th scope="col">Поточний</th>
+                            <th scope="col">Різниця</th>
+                            <th scope="col">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>Середня кіл-сть праців</td>
+                            <td>чол.</td>
+                            <td>{{$av_workers_prev}}</td>
+                            <td>{{$av_workers_cur}}</td>
+                            <td>{{$av_workers_cur - $av_workers_prev}}</td>
+                            <td>{{ round((($av_workers_cur-$av_workers_prev)/$av_workers_prev*100) , 2) }}</td>
+                            </tr>
+
+                            <tr>
+                            <td>Середня зар.плата</td>
+                            <td>грн.</td>
+                            <td>{{$av_sal_prev}}</td>
+                            <td>{{$av_sal_cur}}</td>
+                            <td>{{$av_sal_cur - $av_sal_prev}}</td>
+                            <td>{{ round((($av_sal_cur-$av_sal_prev)/$av_sal_prev*100) , 2) }}</td>
+                            </tr>
+
+
+                            
+                        </tbody>
+                        </table>
+                   </div>
                     
                                        
-                    <div class="row text-center" style="display:none">
+                    <div class="row text-center">
                         <div class="col-md-6 border-right">
-                            
+                        <h5>Середня кількість працівників, чол</h5>
                             <div height="400px">{!! $chart->container() !!}</div>
-                            <h5>moda</h5>
+                            
                         </div>
                         <div class="col-md-6">
-                        
+                        <h5>Середня заробітня плата, грн</h5>
                         <div height="400px">{!! $chart2->container() !!}</div>
-                        <h5>poligon</h5>
+                       
                         </div>
                    </div>
                    <hr>

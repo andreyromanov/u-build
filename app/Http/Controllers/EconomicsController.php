@@ -17,9 +17,7 @@ class EconomicsController extends Controller
      */
     public function index()
     {
-        $chart = new RegisteredUsers;
-        $chart->labels(['One', 'Two', 'Three', 'Four']);
-        $chart->dataset('My dataset', 'bar', [1, 2, 3, 4])->color('red')->fill('red');
+        
 
         $chart2 = new RegisteredUsers;
         $chart2->labels(['One', 'Two', 'Three']);
@@ -102,6 +100,35 @@ class EconomicsController extends Controller
         }
          //dd($income_total);
 
+        $contracts = DB::table('contracts')->get();
+        $contractsCount = $contracts->count();
+        
+        $builds = DB::table('buildings')->get();
+        $buildsCount = $builds->count();
+        //dd($contractsCount);
+        $av_workers_cur = round($contractsCount/$buildsCount,2);
+        $av_workers_prev = 0.65;
+
+        $chart = new RegisteredUsers;
+        $chart->labels([]);
+        $chart->dataset('Минулий', 'bar', [$av_workers_prev])->backgroundColor("lightblue");
+        $chart->dataset('Поточний', 'bar', [$av_workers_cur])->backgroundColor("green");
+
+        //зарплата
+        $salary = DB::table('contracts')->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
+        $salaryCount = $salary->count();
+
+        $salary_al = 0;
+        foreach($salary as $sal){
+            $salary_al += $sal->salary;
+        }
+        $av_sal_cur = round($salary_al/$salaryCount,2);
+        $av_sal_prev = round(400,2);
+        
+        $chart2 = new RegisteredUsers;
+        $chart2->labels([]);
+        $chart2->dataset('Минулий', 'bar', [$av_sal_prev])->backgroundColor("tomato");
+        $chart2->dataset('Поточний', 'bar', [$av_sal_cur])->backgroundColor("lightgreen");
         
         return view('economics.economics', [
                                             'economics' => $economics,
@@ -113,7 +140,16 @@ class EconomicsController extends Controller
                                             'chart5' => $chart5, 
                                             'all_sum' => $all_sum, 
                                             'sums' => $sums, 
-                                            'pers' => $pers]);
+                                            'pers' => $pers,
+                                            
+                                            'av_workers_prev' => $av_workers_prev,
+                                            'av_workers_cur' => $av_workers_cur,
+
+                                            'av_sal_prev' => $av_sal_prev,
+                                            'av_sal_cur' => $av_sal_cur,
+                                            
+                                            
+                                            ]);
     }
 
     /**

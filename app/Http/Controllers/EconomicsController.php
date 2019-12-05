@@ -129,6 +129,12 @@ class EconomicsController extends Controller
         $chart2->labels([]);
         $chart2->dataset('Минулий', 'bar', [$av_sal_prev])->backgroundColor("tomato");
         $chart2->dataset('Поточний', 'bar', [$av_sal_cur])->backgroundColor("lightgreen");
+
+        //закупівлі
+        $purchs_prev = DB::table('purchases')->whereYear('purch_date', date('Y')-1)->count();
+        $purchs_prev = 4;
+        $purchs_cur = DB::table('purchases')->whereYear('purch_date', date('Y'))->count();
+        //$buildsCount = $builds->count();
         
         return view('economics.economics', [
                                             'economics' => $economics,
@@ -148,7 +154,8 @@ class EconomicsController extends Controller
                                             'av_sal_prev' => $av_sal_prev,
                                             'av_sal_cur' => $av_sal_cur,
                                             
-                                            
+                                            'purchs_prev' => $purchs_prev,
+                                            'purchs_cur' => $purchs_cur,
                                             ]);
     }
 

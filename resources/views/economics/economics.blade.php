@@ -65,7 +65,14 @@
                             <td>{{ round((($av_sal_cur-$av_sal_prev)/$av_sal_prev*100) , 2) }}</td>
                             </tr>
 
-
+                            <tr>
+                            <td>Середня кіл-сть закупівель</td>
+                            <td>зак.</td>
+                            <td>{{$purchs_prev}}</td>
+                            <td>{{$purchs_cur}}</td>
+                            <td>{{$purchs_cur - $purchs_prev}}</td>
+                            <td>{{ round((($purchs_cur-$purchs_prev)/$purchs_prev*100) , 2) }}</td>
+                            </tr>
                             
                         </tbody>
                         </table>

@@ -65,6 +65,15 @@
                             <td>{{round($work_cur,2) - round($work_prev,2)}}</td>
                             <td>{{ round((($work_cur-$work_prev)/$work_prev*100) , 2) }}</td>
                             </tr>
+
+                            <tr>
+                            <td>Витрати на будівництво</td>
+                            <td>грн</td>
+                            <td>{{round($min_prev)}}</td>
+                            <td>{{round($min_cur,2)}}</td>
+                            <td>{{round($min_cur,2) - round($min_prev,2)}}</td>
+                            <td>{{ round((($min_cur-$min_prev)/$min_prev*100) , 2) }}</td>
+                            </tr>
                             
                         </tbody>
                         </table>
@@ -78,6 +87,8 @@
                         </div>
                         <div class="col-md-6"><h5>Продуктивність праці</h5><hr>
                         <div>{!! $chart7->container() !!}</div></div>
+                        <div class="col-md-6 mt-5"><h5>Витрати на будівництво</h5><hr>
+                        <div>{!! $chart8->container() !!}</div></div>
                    </div>
                 </div>
             </div>
@@ -88,4 +99,5 @@
 
 {!! $chart6->script() !!}
 {!! $chart7->script() !!}
+{!! $chart8->script() !!}
 @endsection

@@ -122,13 +122,35 @@ class StatisticsController extends Controller
        
         $chart6 = new RegisteredUsers;
         $chart6->labels([]);
-        $chart6->dataset('Минулий', 'bar', [1000])->backgroundColor("tomato");
-        $chart6->dataset('Поточний', 'bar', [$income_total])->backgroundColor("lightgreen");
+        $chart6->dataset('Минулий', 'bar', [1400-(1400*0.18)])->backgroundColor("tomato");
+        $chart6->dataset('Поточний', 'bar', [$income_total-($income_total*0.18)])->backgroundColor("lightgreen");
 
         $chart7 = new RegisteredUsers;
         $chart7->labels([]);
         $chart7->dataset('Минулий', 'bar', [0.1])->backgroundColor("lightblue");
         $chart7->dataset('Поточний', 'bar', [$prod_cur])->backgroundColor("green");
+
+
+
+        //витрати
+
+        $contracts = DB::table('contracts')->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
+        //dd($contracts);
+        $spent = 0;
+
+        foreach($contracts as $contr){
+            $to = \Carbon\Carbon::createFromFormat('Y-m-d', $contr->end_date);
+            $from = \Carbon\Carbon::createFromFormat('Y-m-d', $contr->start_date);
+            $diff_in_days = $to->diffInDays($from);
+            //dd($diff_in_days);
+            $spent += $contr->salary * $diff_in_days;
+        }
+
+        $chart8 = new RegisteredUsers;
+        $chart8->labels(["Минулий", "Поточний"]);
+        $chart8->dataset('Контракти', 'bar', [9000, $spent])->backgroundColor("blue");
+        $chart8->dataset('Матеріали', 'bar', [4000, $sum2])->backgroundColor("green");
+        
         
         return view('statistics.statistics', [
                                             'economics' => $economics,
@@ -153,6 +175,10 @@ class StatisticsController extends Controller
 
                                             'chart6' => $chart6,
                                             'chart7' => $chart7,
+
+                                            'min_prev' => 13000,
+                                            'min_cur' => $spent+$sum2,
+                                            'chart8' => $chart8,
                                             ]);
     }
 

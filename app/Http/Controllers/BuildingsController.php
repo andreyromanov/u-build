@@ -147,11 +147,11 @@ class BuildingsController extends Controller
             ->whereMonth('created_at', '=', $month)
             ->get();*/
 
-        $current_year = [1000, 2112, 3453, 3345, 453, 7567, 4234, 3234, 544, 2334, 2343, 4344];
-        $prev_year = [100, 211, 345, 334, 453, 756, 423, 323, 544, 233, 234, 434];
+        $current_year = [100, 211, 343, 345, 453, 757, 423, 323, 544, 234, 343, 0];
+        //$prev_year = [100, 211, 345, 334, 453, 756, 423, 323, 544, 233, 234, 0];
 
         
-        $chart2->dataset('2018 рік', 'line', $prev_year)->color('yellow');
+        //$chart2->dataset('2018 рік', 'line', $prev_year)->color('yellow');
         $chart2->dataset('2019 рік', 'line', $current_year)->color('blue');
         $chart2->options([
             'scales' => [
@@ -194,7 +194,7 @@ class BuildingsController extends Controller
         
         $chart3 = new RegisteredUsers;
         $chart3->labels($sel_names);
-        $chart3->dataset('Постачальники', 'pie', $sums)->backgroundColor($sel_colors);
+        $chart3->dataset('Постачальники', 'pie', $sums)->backgroundColor(['lightblue', 'lightgreen', 'tomato']);
         //dd($request->id);
         //dd($sums);
         $chart3->options([

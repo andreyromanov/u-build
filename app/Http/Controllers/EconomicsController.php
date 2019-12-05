@@ -15,43 +15,15 @@ class EconomicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function diffPerc($a, $b){
+
+        $diff = round((($a-$b)/$b*100) , 2);
+        
+        return $diff;
+    }
     public function index()
     {
-        
-
-        $chart2 = new RegisteredUsers;
-        $chart2->labels(['One', 'Two', 'Three']);
-        $chart2->dataset('My dataset', 'pie', [1, 2, 3])->backgroundColor(['#00ff00', '#ff0000', '#0000ff']);;
-
-        $chart3 = new RegisteredUsers;
-        $chart3->labels(['One', 'Two', 'Three', 'Four']);
-        $chart3->dataset('My dataset', 'line', [1, 2, 3, 4])->options([
-            'color' => 'rgba(1, 2, 0, 0.5)',
-        ]);
-
-        $economics = Economics::all();
-        $economics2 = Economics::all('name','count');
-        
-        $labels = [];
-        $data = [];
-        $colors =[];
-        foreach($economics2 as $economic){
-            $rand_color = '#' . substr(md5(mt_rand()), 0, 6);
-
-            array_push($labels, $economic->name);
-
-            array_push($data, $economic->count);
-            
-            array_push($colors, $rand_color);
-        }
-
-        $chart4 = new RegisteredUsers;
-        $chart4->labels($labels);
-        $chart4->dataset('My dataset', 'pie', $data)->backgroundColor($colors);
-
-        //select sum spent to each seller
-       // $purchases = DB::table('purchases')->join('products','products.product_id','=','purchases.products_product_id')->join('sellers','sellers.seller_id','=','products.sellers_seller_id')->get();
-    
+         
         $sellers = DB::table('sellers')->distinct()->get();
         $sum=0;
         $sum2=0;
@@ -108,7 +80,8 @@ class EconomicsController extends Controller
         //dd($contractsCount);
         $av_workers_cur = round($contractsCount/$buildsCount,2);
         $av_workers_prev = 0.65;
-
+        $workers_diff = self::diffPerc($av_workers_cur, $av_workers_prev);
+        
         $chart = new RegisteredUsers;
         $chart->labels([]);
         $chart->dataset('Минулий', 'bar', [$av_workers_prev])->backgroundColor("lightblue");
@@ -124,6 +97,7 @@ class EconomicsController extends Controller
         }
         $av_sal_cur = round($salary_al/$salaryCount,2);
         $av_sal_prev = round(400,2);
+        $sal_diff = self::diffPerc($av_sal_cur, $av_sal_prev);
         
         $chart2 = new RegisteredUsers;
         $chart2->labels([]);
@@ -134,15 +108,15 @@ class EconomicsController extends Controller
         $purchs_prev = DB::table('purchases')->whereYear('purch_date', date('Y')-1)->count();
         $purchs_prev = 4;
         $purchs_cur = DB::table('purchases')->whereYear('purch_date', date('Y'))->count();
+        $purchs_diff = self::diffPerc($purchs_cur, $purchs_prev);
         //$buildsCount = $builds->count();
         
         return view('economics.economics', [
-                                            'economics' => $economics,
                                             'income_total' =>  $income_total,
                                             'chart' => $chart, 
                                             'chart2' => $chart2, 
-                                            'chart3' => $chart3, 
-                                            'chart4' => $chart4, 
+                                             
+                                             
                                             'chart5' => $chart5, 
                                             'all_sum' => $all_sum, 
                                             'sums' => $sums, 
@@ -150,12 +124,15 @@ class EconomicsController extends Controller
                                             
                                             'av_workers_prev' => $av_workers_prev,
                                             'av_workers_cur' => $av_workers_cur,
+                                            'workers_diff' => $workers_diff,
 
                                             'av_sal_prev' => $av_sal_prev,
                                             'av_sal_cur' => $av_sal_cur,
+                                            'sal_diff' => $sal_diff,
                                             
                                             'purchs_prev' => $purchs_prev,
                                             'purchs_cur' => $purchs_cur,
+                                            'purchs_diff' => $purchs_diff,
                                             ]);
     }
 

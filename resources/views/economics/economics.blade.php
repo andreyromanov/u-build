@@ -2,31 +2,6 @@
 
 @section('content')
 
-<div class="container mt-3" style="display:none">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Прибуток</div>
-                <div class="card-body">
-                    
-                    <div class="row text-center">
-                        <div class="col-md-6 border-right">
-                       Дохід - {{$income_total}} грн <br>
-                       Чистий дохід - {{$income_total - ($income_total*20)/100}} грн
-                        </div>
-                        <div class="col-md-6">
-                        
-                        
-                        </div>
-                   </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -53,7 +28,7 @@
                             <td>{{$av_workers_prev}}</td>
                             <td>{{$av_workers_cur}}</td>
                             <td>{{$av_workers_cur - $av_workers_prev}}</td>
-                            <td>{{ round((($av_workers_cur-$av_workers_prev)/$av_workers_prev*100) , 2) }}</td>
+                            <td>{{$workers_diff}}</td>
                             </tr>
 
                             <tr>
@@ -62,7 +37,7 @@
                             <td>{{$av_sal_prev}}</td>
                             <td>{{$av_sal_cur}}</td>
                             <td>{{$av_sal_cur - $av_sal_prev}}</td>
-                            <td>{{ round((($av_sal_cur-$av_sal_prev)/$av_sal_prev*100) , 2) }}</td>
+                            <td>{{$sal_diff}}</td>
                             </tr>
 
                             <tr>
@@ -71,7 +46,7 @@
                             <td>{{$purchs_prev}}</td>
                             <td>{{$purchs_cur}}</td>
                             <td>{{$purchs_cur - $purchs_prev}}</td>
-                            <td>{{ round((($purchs_cur-$purchs_prev)/$purchs_prev*100) , 2) }}</td>
+                            <td>{{$purchs_diff}}</td>
                             </tr>
                             
                         </tbody>
@@ -82,13 +57,12 @@
                     <div class="row text-center">
                         <div class="col-md-6 border-right">
                         <h5>Середня кількість працівників, чол</h5>
-                            <div height="400px">{!! $chart->container() !!}</div>
-                            
+                        <div height="400px">{!! $chart->container() !!}</div>
                         </div>
+
                         <div class="col-md-6">
                         <h5>Середня заробітня плата, грн</h5>
                         <div height="400px">{!! $chart2->container() !!}</div>
-                       
                         </div>
                    </div>
                    <hr>

@@ -49,7 +49,7 @@
                             </tr>
 
                             <tr>
-                            <td>Виролення</td>
+                            <td>Вироблення</td>
                             <td>задач/днів</td>
                             <td>{{round($plansCount_done_prev,2)}}</td>
                             <td>{{round($plansCount_done_cur,2)}}</td>

@@ -27,16 +27,16 @@
                             <td>{{$income_total_prev}}</td>
                             <td>{{$income_total}}</td>
                             <td>{{$income_total - $income_total_prev}}</td>
-                            <td>{{ round((($income_total-$income_total_prev)/$income_total_prev*100) , 2) }}</td>
+                            <td>{{$income_diff}}</td>
                             </tr>
 
                             <tr>
                             <td>Чистий прибуток</td>
                             <td>грн.</td>
-                            <td>{{$income_total_prev-($income_total_prev*0.18)}}</td>
-                            <td>{{$income_total-($income_total*0.18)}}</td>
-                            <td>{{$income_total-($income_total*0.18) - $income_total_prev}}</td>
-                            <td>{{ round(((($income_total*0.18)-($income_total_prev*0.18))/($income_total_prev*0.18)*100) , 2) }}</td>
+                            <td>{{$income_pure_prev}}</td>
+                            <td>{{$income_pure_cur}}</td>
+                            <td>{{$income_pure_cur - $income_pure_prev}}</td>
+                            <td>{{$income_pure_diff}}</td>
                             </tr>
 
                             <tr>
@@ -45,7 +45,7 @@
                             <td>{{$prod_prev}}</td>
                             <td>{{$prod_cur}}</td>
                             <td>{{$prod_cur - $prod_prev}}</td>
-                            <td>{{ round((($prod_cur-$prod_prev)/$prod_prev*100) , 2) }}</td>
+                            <td>{{$prod_diff}}</td>
                             </tr>
 
                             <tr>

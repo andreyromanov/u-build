@@ -51,28 +51,28 @@
                             <tr>
                             <td>Вироблення</td>
                             <td>задач/днів</td>
-                            <td>{{round($plansCount_done_prev,2)}}</td>
-                            <td>{{round($plansCount_done_cur,2)}}</td>
-                            <td>{{round($plansCount_done_cur,2) - round($plansCount_done_prev,2)}}</td>
-                            <td>{{round(((round($plansCount_done_cur,2)-round($plansCount_done_prev,2))/round($plansCount_done_prev,2)*100) , 2)}}</td>
+                            <td>{{$plansCount_done_prev}}</td>
+                            <td>{{$plansCount_done_cur}}</td>
+                            <td>{{$plansCount_done_cur - $plansCount_done_prev}}</td>
+                            <td>{{$plansCount_done_diff}}</td>
                             </tr>
 
                             <tr>
                             <td>Трудомісткість</td>
                             <td>днів/задач</td>
-                            <td>{{round($work_prev)}}</td>
-                            <td>{{round($work_cur,2)}}</td>
-                            <td>{{round($work_cur,2) - round($work_prev,2)}}</td>
-                            <td>{{ round((($work_cur-$work_prev)/$work_prev*100) , 2) }}</td>
+                            <td>{{$work_prev}}</td>
+                            <td>{{$work_cur}}</td>
+                            <td>{{$work_cur - $work_prev}}</td>
+                            <td>{{$work_diff}}</td>
                             </tr>
 
                             <tr>
                             <td>Витрати на будівництво</td>
                             <td>грн</td>
-                            <td>{{round($min_prev)}}</td>
-                            <td>{{round($min_cur,2)}}</td>
-                            <td>{{round($min_cur,2) - round($min_prev,2)}}</td>
-                            <td>{{ round((($min_cur-$min_prev)/$min_prev*100) , 2) }}</td>
+                            <td>{{$spent_prev}}</td>
+                            <td>{{$spent_cur}}</td>
+                            <td>{{$spent_cur - $spent_prev}}</td>
+                            <td>{{$spent_diff}}</td>
                             </tr>
                             
                         </tbody>

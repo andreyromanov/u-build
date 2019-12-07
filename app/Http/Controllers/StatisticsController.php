@@ -88,10 +88,14 @@ class StatisticsController extends Controller
          //вироблення
         $plans_done = DB::table('plans')->where('status', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->get();
         //dd($plans_done);
-        $plansCount_done_cur = ($plans_done->count())/365;
+        $plansCount_done_prev = 0.01;
+        $plansCount_done_cur = round($plans_done->count()/365, 2);
+        $plansCount_done_diff = self::diffPerc($plansCount_done_cur, $plansCount_done_prev);
 
         //трудомісткість
-        $work_cur = 365/($plans_done->count());
+        $work_prev = 55;
+        $work_cur = round(365/$plans_done->count(), 2);
+        $work_diff = self::diffPerc($work_cur, $work_prev);
 
         //продуктивність
         $prod_prev = 0.1;
@@ -112,20 +116,24 @@ class StatisticsController extends Controller
 
         $contracts = DB::table('contracts')->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
         //dd($contracts);
-        $spent = 0;
+        $spent_cur = 0;
 
         foreach($contracts as $contr){
             $to = \Carbon\Carbon::createFromFormat('Y-m-d', $contr->end_date);
             $from = \Carbon\Carbon::createFromFormat('Y-m-d', $contr->start_date);
             $diff_in_days = $to->diffInDays($from);
             //dd($diff_in_days);
-            $spent += $contr->salary * $diff_in_days;
+            $spent_cur += $contr->salary * $diff_in_days;
         }
+
+        $spent_prev = 13000;
+        $spent_cur += $sum2;
+        $spent_diff = self::diffPerc($spent_cur, $spent_prev); 
 
         $chart8 = new RegisteredUsers;
         $chart8->labels(["Минулий", "Поточний"]);
-        $chart8->dataset('Контракти', 'bar', [9000, $spent])->backgroundColor("blue");
-        $chart8->dataset('Матеріали', 'bar', [4000, $sum2])->backgroundColor("green");
+        $chart8->dataset('Контракти', 'bar', [9000, $spent_prev])->backgroundColor("blue");
+        $chart8->dataset('Матеріали', 'bar', [4000, $spent_cur])->backgroundColor("green");
         
         
         return view('statistics.statistics', [
@@ -141,21 +149,24 @@ class StatisticsController extends Controller
                                             'all_sum' => $all_sum, 
                                             'sums' => $sums, 
                                             'pers' => $pers,
-                                            'plansCount_done_prev' => 0.01,
+                                            'plansCount_done_prev' => $plansCount_done_prev,
                                             'plansCount_done_cur' => $plansCount_done_cur,
+                                            'plansCount_done_diff' => $plansCount_done_diff,
 
                                             'prod_prev' => $prod_prev,
                                             'prod_cur' => $prod_cur,
                                             'prod_diff' => $prod_diff,
 
-                                            'work_prev' => 55,
+                                            'work_prev' => $work_prev,
                                             'work_cur' => $work_cur,
+                                            'work_diff' => $work_diff,
 
                                             'chart6' => $chart6,
                                             'chart7' => $chart7,
 
-                                            'min_prev' => 13000,
-                                            'min_cur' => $spent+$sum2,
+                                            'spent_prev' => $spent_prev,
+                                            'spent_cur' => $spent_cur,
+                                            'spent_diff' => $spent_diff,
                                             'chart8' => $chart8,
                                             ]);
     }

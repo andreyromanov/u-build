@@ -292,6 +292,14 @@
 </script>
 @endif
 
+@if(($build->budjet*0.1) > $budget_rest)
+<script type="text/javascript">
+    $(window).on('load',function(){
+        alert('Залишилось менше 10% бюджету будівництва!');
+    });
+</script>
+@endif
+
 @endforeach
 
 

@@ -225,6 +225,9 @@ class BuildingsController extends Controller
             'chart2' => $chart2,
             'chart3' => $chart3,
 
+            'spent' => $spent,
+            'budget_rest' => $budget_rest
+
             ]);
     }
 

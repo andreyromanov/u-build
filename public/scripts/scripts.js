@@ -185,3 +185,23 @@ function search() {
 		}
 	  });
   }
+
+  function editBuild(){
+
+	var building_id = $("#edit input[name=building_id]").val();
+	var name = $("#edit input[name=name]").val();
+	var budjet = $("#edit input[name=budjet]").val();
+	var start = $("#edit input[name=start]").val();
+	var end = $("#edit input[name=end]").val();
+
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/building/edit",
+		type: "POST",
+		data: {name, building_id, budjet, start, end},
+		success: function(data){
+			console.log("edited");
+			document.location.reload(true);
+		}
+	  });
+  }

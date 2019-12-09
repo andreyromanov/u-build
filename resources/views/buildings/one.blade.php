@@ -7,7 +7,8 @@
         <div class="col-md-12">
             <div class="card">
             
-                <div class="card-header">Дані про об'єкт <b>{{$build->name}}</b>&nbsp;|&nbsp;Бюджет - <b>{{$build->budjet}} грн</b>&nbsp;|&nbsp; Дати: <b>{{$build->start_date}} - {{$build->end_date}}</b></div>
+                <div class="card-header">Дані про об'єкт <b>{{$build->name}}</b>&nbsp;|&nbsp;Бюджет - <b>{{$build->budjet}} грн</b>&nbsp;|&nbsp; Дати: <b>{{$build->start_date}} - {{$build->end_date}}</b>
+                <button class=" ml-5 btn btn-warning" data-toggle="modal" data-target="#edit"><i class="fas fa-edit nav-icon"></i></button></div>
                 <div class="card-body">
                  <div class="row building-info">
                     <div class="col-md-6 border-right building-info">
@@ -275,6 +276,39 @@
       <div class="modal-footer">
         <button onclick="refreshTaskModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
         <button onclick="archive()" type="button" class="btn btn-primary">Архівувати</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal EDIT INFO-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Нова задача</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body py-5">
+        <input type="hidden" name="building_id" value="{{ $build->building_id }}">
+        
+        <label for="">Назва</label>
+        <input type="text" name="name" class="form-control mb-3" value="{{ $build->name }}">
+
+        <label for="">Бюджет</label>
+        <input type="number" name="budjet" class="form-control mb-3" value="{{ $build->budjet }}">
+
+        <label for="">Початок</label>
+        <input type="date" name="start" class="form-control mb-3" value="{{ $build->start_date }}">
+
+        <label for="">Кінець</label>
+        <input type="date" name="end" class="form-control mb-3" value="{{ $build->end_date }}">
+
+      </div>
+      <div class="modal-footer">
+        <button onclick="editBuild()" type="button" class="btn btn-primary">Зберегти</button>
       </div>
     </div>
   </div>

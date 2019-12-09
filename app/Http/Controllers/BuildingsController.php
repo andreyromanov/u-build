@@ -231,16 +231,6 @@ class BuildingsController extends Controller
             ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Buildings  $buildings
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Buildings $buildings)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -320,5 +310,20 @@ class BuildingsController extends Controller
         ]);
 
         return 'new task';
+    }
+
+    public function edit(Request $request)
+    {
+
+        Buildings::where('building_id', $request->building_id)->update([
+            'name' => $request->name,
+            'budjet' => $request->budjet,
+            'start_date' => $request->start,
+            'end_date' => $request->end
+        ]);
+
+        dd(Buildings::where('building_id', $request->building_id));
+
+        return 'updated';
     }
 }

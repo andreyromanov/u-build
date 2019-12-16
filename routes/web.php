@@ -38,6 +38,7 @@ Route::get('/building_one/{id}', 'BuildingsController@show');
 Route::post('/register_building', 'BuildingsController@store');
 Route::post('/building/destroy', 'BuildingsController@destroy');
 Route::post('/building/edit', 'BuildingsController@edit');
+Route::post('/building/archive', 'ArchiveController@store');
 
 
 Route::get('/add_building', function () {

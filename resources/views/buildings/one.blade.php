@@ -275,7 +275,7 @@
       </div>
       <div class="modal-footer">
         <button onclick="refreshTaskModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-        <button onclick="archive()" type="button" class="btn btn-primary">Архівувати</button>
+        <button onclick="archive('{{ Auth::user()->id }}')" type="button" class="btn btn-primary">Архівувати</button>
       </div>
     </div>
   </div>

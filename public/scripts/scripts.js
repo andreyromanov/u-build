@@ -205,3 +205,19 @@ function search() {
 		}
 	  });
   }
+
+  function archive(admin){
+
+	var building_id = $("#old input[name=building_id]").val();
+	
+	$.ajax({
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		url: "/building/archive",
+		type: "POST",
+		data: {building_id},
+		success: function(data){
+			console.log(data);
+			//document.location.href = '/buildings/'+admin;
+		}
+	  });
+  }

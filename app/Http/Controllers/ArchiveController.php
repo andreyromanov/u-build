@@ -14,6 +14,14 @@ class ArchiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function incomeTax($a){
+
+        $pure = $a-($a*0.18);
+        
+        return $pure;
+    }
+
     public function index()
     {
         //
@@ -38,22 +46,30 @@ class ArchiveController extends Controller
     public function store(Request $request)
     {
         $b_id = $request->building_id;
+        //salary
         $salary = DB::table('contracts')->where('buildings_building_id', $b_id)->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
         $salaryCount = $salary->count();
-
+        //purchases
         $purchases = DB::table('purchases')->where('buildings_building_id', $b_id)->join('products','products.product_id','=','purchases.products_product_id')->get();
         $purchasesCount = $purchases->count();
-
+        //salary
         $salary_al = 0;
         foreach($salary as $sal){
             $salary_al += $sal->salary;
         }
         $av_sal_cur = round($salary_al/$salaryCount,2);
+        //income
+        $income = DB::table('plans')->where('status', '=', 1)->where('buildings_building_id', $b_id)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->get(); 
+        $income_total = 0;
+        foreach($income as $in){
+            $income_total += $in->work_price;
+        }
+        //income pure
+        $income_pure = self::incomeTax($income_total);
 
-        $income = DB::table('plans')->join('work_types','work_types.type_id','=','plans.work_types_type_id')->where('status', '=', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->get(); 
-
+        //spent
         
-        dd($av_sal_cur);
+        //dd($income);
 
         return 'gg';
     }

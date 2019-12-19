@@ -58,6 +58,12 @@ class ArchiveController extends Controller
             $salary_al += $sal->salary;
         }
         $av_sal_cur = round($salary_al/$salaryCount,2);
+
+        $purch_al = 0;
+        
+        foreach($purchases as $purch){
+            $purch_al += $purch->count * $purch->price;
+        }
         //income
         $income = DB::table('plans')->where('status', '=', 1)->where('buildings_building_id', $b_id)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->get(); 
         $income_total = 0;
@@ -68,10 +74,40 @@ class ArchiveController extends Controller
         $income_pure = self::incomeTax($income_total);
 
         //spent
+        $spent = $salary_al + $purch_al;
         
-        //dd($income);
+          //вироблення
+        $plans_done = DB::table('plans')->where('status', 1)->join('buildings','buildings.building_id','=','plans.buildings_building_id')->where('buildings_building_id', $b_id)->get();
+        
+        $plansCount_done = round($plans_done->count()/365, 2);
+       
+        //трудомісткість
+        $work = round(365/$plans_done->count(), 2);
+        
+        //продуктивність
+        $prod = round($plans_done->count()/$work, 2);
 
-        return 'gg';
+        DB::table('archives')->insert([
+
+            [
+                'workers' => $salaryCount,
+                'purchases' => $purchasesCount,
+                'salary' => $av_sal_cur,
+                'income' => $income_total,
+                'pure_income' => $income_pure,
+                'spent' => $spent,
+                'product' => $prod,
+                'vyrob' => $plansCount_done,
+                'trudo' => $work,
+            ],
+           
+
+        ]);
+
+        Buildings::where('building_id', $b_id)->delete();
+
+        
+        return 'archived';
     }
 
     /**

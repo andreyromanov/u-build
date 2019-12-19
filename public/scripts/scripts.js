@@ -217,7 +217,7 @@ function search() {
 		data: {building_id},
 		success: function(data){
 			console.log(data);
-			//document.location.href = '/buildings/'+admin;
+			document.location.href = '/buildings/'+admin;
 		}
 	  });
   }

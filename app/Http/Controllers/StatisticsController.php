@@ -106,11 +106,37 @@ class StatisticsController extends Controller
         $chart6->labels([]);
         $chart6->dataset('Минулий', 'bar', [1400-(1400*0.18)])->backgroundColor("tomato");
         $chart6->dataset('Поточний', 'bar', [$income_total-($income_total*0.18)])->backgroundColor("lightgreen");
+        $chart6->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'scaleLabel' =>
+                        [
+                            'display' => true,
+                            'labelString' => 'Прибуток, грн',
+                        ],
+                    ]
+                ]
+            ]
+        ]);
 
         $chart7 = new RegisteredUsers;
         $chart7->labels([]);
         $chart7->dataset('Минулий', 'bar', [0.1])->backgroundColor("lightblue");
         $chart7->dataset('Поточний', 'bar', [$prod_cur])->backgroundColor("green");
+        $chart7->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'scaleLabel' =>
+                        [
+                            'display' => true,
+                            'labelString' => 'Продуктивність',
+                        ],
+                    ]
+                ]
+            ]
+        ]);
 
         //витрати
 
@@ -134,6 +160,19 @@ class StatisticsController extends Controller
         $chart8->labels(["Минулий", "Поточний"]);
         $chart8->dataset('Контракти', 'bar', [9000, $spent_prev])->backgroundColor("blue");
         $chart8->dataset('Матеріали', 'bar', [4000, $spent_cur])->backgroundColor("green");
+        $chart8->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'scaleLabel' =>
+                        [
+                            'display' => true,
+                            'labelString' => 'Витрати, грн',
+                        ],
+                    ]
+                ]
+            ]
+        ]);
         
         
         return view('statistics.statistics', [

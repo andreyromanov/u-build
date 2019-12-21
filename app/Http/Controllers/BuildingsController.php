@@ -186,7 +186,7 @@ class BuildingsController extends Controller
                 //dd($sum);
                 $rand_color = '#' . substr(md5(mt_rand()), 0, 6);
                 array_push($sel_colors, $rand_color);
-                array_push($sel_names, $sell->seller); 
+                array_push($sel_names, $sell->seller.', грн'); 
                 array_push($sums, $sum); 
                 
         }
@@ -201,10 +201,11 @@ class BuildingsController extends Controller
             'scales' => [
                 'yAxes' => [
                     [
-                        'display'=>false
+                        'display'=>false,
+                        
                     ]
                 ]
-            ]
+            ],
         ]);
 
         //TASKS TASKS TASKS

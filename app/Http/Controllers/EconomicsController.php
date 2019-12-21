@@ -61,6 +61,16 @@ class EconomicsController extends Controller
         $chart5 = new RegisteredUsers;
         $chart5->labels($sel_names);
         $chart5->dataset('My dataset', 'pie', $sums)->backgroundColor($sel_colors);
+        $chart5->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'display'=>false,
+                        
+                    ]
+                ]
+            ],
+        ]);
 
         //Прибуток
 
@@ -86,6 +96,19 @@ class EconomicsController extends Controller
         $chart->labels([]);
         $chart->dataset('Минулий', 'bar', [$av_workers_prev])->backgroundColor("lightblue");
         $chart->dataset('Поточний', 'bar', [$av_workers_cur])->backgroundColor("green");
+        $chart->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'scaleLabel' =>
+                        [
+                            'display' => true,
+                            'labelString' => 'Працівників на будівництво',
+                        ],
+                    ]
+                ]
+            ]
+        ]);
 
         //зарплата
         $salary = DB::table('contracts')->join('workers','workers.worker_id','=','contracts.workers_worker_id')->get();
@@ -103,6 +126,19 @@ class EconomicsController extends Controller
         $chart2->labels([]);
         $chart2->dataset('Минулий', 'bar', [$av_sal_prev])->backgroundColor("tomato");
         $chart2->dataset('Поточний', 'bar', [$av_sal_cur])->backgroundColor("lightgreen");
+        $chart2->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'scaleLabel' =>
+                        [
+                            'display' => true,
+                            'labelString' => 'Середня зарплата співробітника, грн',
+                        ],
+                    ]
+                ]
+            ]
+        ]);
 
         //закупівлі
         $purchs_prev = DB::table('purchases')->whereYear('purch_date', date('Y')-1)->count();

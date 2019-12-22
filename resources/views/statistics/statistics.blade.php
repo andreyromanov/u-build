@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-md-6"><h5>Продуктивність праці</h5><hr>
                         <div>{!! $chart7->container() !!}</div></div>
-                        <div class="col-md-6 mt-5"><h5>Витрати на будівництво</h5><hr>
+                        <div class="col-md-12 mt-5"><h5>Витрати на будівництво</h5><hr>
                         <div>{!! $chart8->container() !!}</div></div>
                    </div>
                 </div>

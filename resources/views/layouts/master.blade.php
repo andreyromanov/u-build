@@ -88,13 +88,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/economics" class="nav-link">
+                <a href="/statistics" class="nav-link">
                 <i class="nav-icon fas fa-chart-pie"></i>
                   <p>Статистика</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/statistics" class="nav-link">
+                <a href="/economics" class="nav-link">
                 <i class="fab fa-bitcoin"></i>
                   <p>Економіка</p>
                 </a>

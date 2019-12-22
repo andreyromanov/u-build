@@ -28,9 +28,9 @@ Route::post('/home/user', 'HomeController@showUserInfo')->name('home.userinfo');
 
 ////////////     BASIC ROUTES    ///////////////////
 
-Route::get('/economics', 'EconomicsController@index')->name('economics');
+Route::get('/statistics', 'EconomicsController@index')->name('economics');
 
-Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+Route::get('/economics', 'StatisticsController@index')->name('statistics');
 
 ////////////     BUILDINGS    ///////////////////
 Route::get('/buildings/{id}', 'BuildingsController@index');

@@ -142,12 +142,17 @@ class BuildingsController extends Controller
             "Листопад", 
             "Грудень"
             ]);
-            //date purchases
-        /*$post = Mjblog::whereYear('created_at', '=', $year)
-            ->whereMonth('created_at', '=', $month)
-            ->get();*/
 
-        $current_year = [100, 211, 343, 345, 453, 757, 423, 323, 544, 234, 343, 0];
+            //date purchases
+            $purchases_dec = DB::table('purchases')->where('buildings_building_id', '=', $request->id)->join('products','products.product_id','=','purchases.products_product_id')->whereYear('purch_date', '=', 2019)->whereMonth('purch_date', '=', 12)->get();
+            $purc_dec = 0;
+            foreach($purchases_dec as $p_dec){
+                //$rand_color = '#' . substr(md5(mt_rand()), 0, 6);
+    
+                $purc_dec += $p_dec->price * $p_dec->count;
+                
+            }
+        $current_year = [1000, 2110, 3430, 3450, 4530, 3570, 4230, 3230, 2440, 2340, 3430, $purc_dec];
         //$prev_year = [100, 211, 345, 334, 453, 756, 423, 323, 544, 233, 234, 0];
 
         

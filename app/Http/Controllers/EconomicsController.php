@@ -60,7 +60,7 @@ class EconomicsController extends Controller
 
         $chart5 = new RegisteredUsers;
         $chart5->labels($sel_names);
-        $chart5->dataset('My dataset', 'pie', $sums)->backgroundColor($sel_colors);
+        $chart5->dataset('My dataset', 'pie', $sums)->backgroundColor(['tomato', 'lightgreen', 'lightblue']);
         $chart5->options([
             'scales' => [
                 'yAxes' => [
